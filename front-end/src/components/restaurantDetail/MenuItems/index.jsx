@@ -37,9 +37,10 @@ export default function MenuItems({ route }) {
           <View style={styles.itemContainer} key={key}>
             <BouncyCheckbox
               iconStyle={{
-                borderColor: "#404040",
+                borderColor: "#d9d9d9",
                 borderRadius: 5,
               }}
+              fillColor= 'green'
               isChecked = {isSelectedItem(item)}
               onPress={(checkboxValue) => selectedItem(item, checkboxValue)}
             />
