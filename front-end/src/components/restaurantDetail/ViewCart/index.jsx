@@ -1,10 +1,10 @@
 import { Text, TouchableOpacity, Modal, View } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./styles/viewCart.style";
 import { useSelector } from "react-redux";
 import OrderMenu from "../OrderMenu";
 
-export default function ViewCart({ route }) {
+export default function ViewCart({ route, navigation }) {
   const [displayedModal, setDisplayedModal] = useState(false);
 
   //Get seleted items stored with redux
@@ -18,6 +18,11 @@ export default function ViewCart({ route }) {
     0
   );
 
+  const handleCheckout = () => {
+    setDisplayedModal(false);
+    navigation.navigate("Orders", {});
+  };
+
   const modalView = () => (
     <View style={styles.modalContainer}>
       <TouchableOpacity
@@ -25,13 +30,12 @@ export default function ViewCart({ route }) {
         style={styles.overDiv}
       ></TouchableOpacity>
       <View style={styles.modalDisplayContainer}>
-
         <OrderMenu
           totalCost={totalCost}
           items={selectedItems}
           title={route.params.restaurantName}
+          handleCheckout={handleCheckout}
         />
-        
       </View>
     </View>
   );

@@ -25,6 +25,8 @@
     "react-native-vector-icons": "^9.1.0",
     "react-native-web": "0.17.1",
     "react-redux": "^7.2.6",
+    "lottie-ios": "2.5.0",
+    "lottie-react-native": "2.6.1",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22"
   },
   "devDependencies": {

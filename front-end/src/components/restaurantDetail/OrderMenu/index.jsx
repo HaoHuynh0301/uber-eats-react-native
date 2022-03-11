@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./styles/orderMenu.style";
 import {Divider} from 'react-native-elements';
 
-export default function OrderMenu({title, items, totalCost }) {
+export default function OrderMenu({title, items, totalCost, handleCheckout }) {
   const listItems = () => (
     items.map((item, index) => (
       <View key = {index} style = {styles.itemWrapper}>
@@ -27,7 +27,7 @@ export default function OrderMenu({title, items, totalCost }) {
         <Text>{totalCost} VNĐ</Text>
       </View>
       <TouchableOpacity onPress = {() => {
-        
+        handleCheckout()
       }} style = {styles.checkoutBtn}>
         <Text style = {styles.bigWhiteTxt}>Checkout </Text>
       </TouchableOpacity>
