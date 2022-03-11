@@ -5,7 +5,9 @@ import styles from './styles/bottomIcon.style';
 
 export default function Icon(props) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress = {props.handleNavigate}
+    >
       <View style = {styles.container}>
         <FontAwesome5
           name={props.icon}

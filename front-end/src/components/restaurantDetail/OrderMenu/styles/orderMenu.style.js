@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   checkoutBtn: {
     width: '80%',
     backgroundColor: 'black',
-    height: 35,
+    height: 40,
     marginTop: 15,
     borderRadius: 20,
     flexDirection: 'row',

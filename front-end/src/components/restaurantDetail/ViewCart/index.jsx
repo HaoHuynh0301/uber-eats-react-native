@@ -7,9 +7,12 @@ import OrderMenu from "../OrderMenu";
 export default function ViewCart({ route }) {
   const [displayedModal, setDisplayedModal] = useState(false);
 
+  //Get seleted items stored with redux
   const selectedItems = useSelector(
     (state) => state.cartReducer.selectedItems.items
   );
+
+  //Count total cost of selected items
   const totalCost = selectedItems.reduce(
     (cost, item, index, selectedItems) => (cost += item.price),
     0
@@ -22,11 +25,13 @@ export default function ViewCart({ route }) {
         style={styles.overDiv}
       ></TouchableOpacity>
       <View style={styles.modalDisplayContainer}>
+
         <OrderMenu
           totalCost={totalCost}
           items={selectedItems}
           title={route.params.restaurantName}
         />
+        
       </View>
     </View>
   );
