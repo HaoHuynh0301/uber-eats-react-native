@@ -1,10 +1,10 @@
-import { Text, TouchableOpacity, Modal, View, Alert } from "react-native";
-import React, { useState } from "react";
+import { Text, TouchableOpacity, Modal, View } from "react-native";
+import React, { useState, useEffect } from "react";
 import styles from "./styles/viewCart.style";
 import { useSelector } from "react-redux";
 import OrderMenu from "../OrderMenu";
 
-export default function ViewCart({route}) {
+export default function ViewCart({ route }) {
   const [displayedModal, setDisplayedModal] = useState(false);
 
   const selectedItems = useSelector(
@@ -22,7 +22,11 @@ export default function ViewCart({route}) {
         style={styles.overDiv}
       ></TouchableOpacity>
       <View style={styles.modalDisplayContainer}>
-        <OrderMenu totalCost={totalCost} items = {route.params.item.foodItem} title = {route.params.restaurantName}/>
+        <OrderMenu
+          totalCost={totalCost}
+          items={selectedItems}
+          title={route.params.restaurantName}
+        />
       </View>
     </View>
   );
@@ -38,7 +42,6 @@ export default function ViewCart({route}) {
         visible={displayedModal}
         transparent={true}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
         dismiss={() => setDisplayedModal(false)}

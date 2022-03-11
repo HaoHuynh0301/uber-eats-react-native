@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   viewCartTxt: {
     color: 'white',

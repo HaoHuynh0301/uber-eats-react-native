@@ -14,6 +14,7 @@ export default function MenuItems({ route }) {
     (state) => state.cartReducer.selectedItems.items
   );
 
+  //Check is the item was checked
   const isSelectedItem = (item) => {
     const isChecked = selectedItems.find(({title}) => title === item.title);
     return isChecked;

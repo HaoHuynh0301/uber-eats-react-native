@@ -7,6 +7,7 @@ import { MENU_ITEMS } from "./constants/restaurants.constant";
 import { Divider } from "react-native-elements";
 
 export default function RestaurantDetail({ route, navigation }) {
+  console.log(route.params);
   return (
     <View style={{ height: "100%" }}>
       <About data={MENU_ITEMS} route={route} />
