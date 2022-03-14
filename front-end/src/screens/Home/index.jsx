@@ -29,7 +29,7 @@ export default function HomePage({ navigation }) {
       </ScrollView>
 
       <Divider width={1} />
-      <BottomTabs navigation = {navigation} />
+      {/* <BottomTabs navigation = {navigation} /> */}
     </SafeAreaView>
   );
 }

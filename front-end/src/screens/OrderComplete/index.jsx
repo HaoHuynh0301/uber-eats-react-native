@@ -1,12 +1,11 @@
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import React, {useRef, useEffect} from "react";
+import { Text, SafeAreaView, ScrollView } from "react-native";
+import React from "react";
 import { useSelector } from "react-redux";
 import styles from "./styles/order.style";
-import LottieViewComponent from "./LottieView";
 import { ORDER_TITLE } from "./constants/order.constants";
 import OrderItems from "./OrderItems";
-import CookingComponent from './CookingComponent';
-import LottieView from "lottie-react-native";
+import CheckingComponent from "../../components/OrderComplete/CheckingComponent";
+import CookingComponent from "../../components/OrderComplete/CookingComponent";
 
 export default function OrderComplete() {
   const { items, restaurantName } = useSelector(
@@ -19,22 +18,16 @@ export default function OrderComplete() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LottieViewComponent styles={styles} />
+      <CheckingComponent styles={styles} />
       <Text style={styles.orderTitle}>
         {ORDER_TITLE(restaurantName, totalCost)}
       </Text>
 
       <ScrollView showVerticalScrollbar={false}>
-        <OrderItems items = {items}/>
+        <OrderItems items={items} />
       </ScrollView>
 
-      <LottieView 
-        autoPlay
-        loop = {true}
-        speed = {1}
-        style={styles.cookingIcon}
-        source={require("../../assets/animation/cooking-animation.json")}
-      />
+      <CookingComponent styles={styles} />
     </SafeAreaView>
   );
 }
