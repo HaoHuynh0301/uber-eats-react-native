@@ -3,8 +3,10 @@ import {useState} from 'react';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+
+  
   return (
-    <RootNavigation auth = {loggedIn}/>
+    <RootNavigation handleLogin = {() => setLoggedIn(true)} auth = {loggedIn}/>
   );
 }
 
