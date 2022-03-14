@@ -7,6 +7,7 @@ let authReducer = (state = defaultState, action) => {
     case "LOGIN_REQUEST": {
       let newState = { ...state };
       let { username, password } = action.payload;
+      console.log(username)
       if (username && password) {
         newState.loggedIn = true;
       }

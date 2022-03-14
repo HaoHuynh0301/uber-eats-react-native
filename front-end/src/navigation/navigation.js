@@ -36,9 +36,7 @@ const ScreenStackNavigator = () => (
 export default function RootNavigation({ auth }) {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.authReducer.loggedIn);
-  
-  console.log(loggedIn)
-  
+    
   return(
     <NavigationContainer>
       {loggedIn ? ScreenStackNavigator() : LoginStackNavigator()}
