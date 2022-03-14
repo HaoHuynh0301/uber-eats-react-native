@@ -1,12 +1,11 @@
 import { View, Text } from "react-native";
 import React, { useState, useEffect } from "react";
-import {useSelector, useDispatch} from "react-redux";
 
-export default function AuthForm() {
-  
+export default function Auth() {
+
   return (
     <View>
-      <Text>index</Text>
+      <Text>Auth</Text>
     </View>
   );
 }

@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import HomePage from "./src/screens/Home";
-import RestaurantDetail from './src/screens/RestaurantDetail';
 import RootNavigation from './src/navigation/navigation';
+import {useState} from 'react';
 
 export default function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
-    <RootNavigation />
+    <RootNavigation auth = {loggedIn}/>
   );
 }
 
