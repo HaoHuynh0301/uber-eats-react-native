@@ -12,7 +12,7 @@ export default function AuthForm(props) {
     handleLogin,
     subFooter,
     footer,
-    handleSendSms,
+    sendSmsButton
   } = props;
 
   const inputFields = (textInputs) =>
@@ -25,11 +25,13 @@ export default function AuthForm(props) {
         />
         <TextField
           value={input.value}
+          enableErrors
+          validate={['required', (value) => value.length > 6]}
+          validationMessage={['Field is required']}
           onChangeText={(value) => input.onChange(value)}
           secureTextEntry={input.isSecure}
           placeholder={input.placeholder}
           floatingPlaceholder
-          enableErrors
           floatingPlaceholderStyle={{ color: "black" }}
           containerStyle={{ marginLeft: 10, width: "90%", borderColor: "grey" }}
         />
@@ -75,6 +77,15 @@ export default function AuthForm(props) {
           label={loginButton.label}
           onPress={handleLogin}
         />
+      )}
+      {sendSmsButton && (
+        <Button
+          backgroundColor="black"
+          labelStyle={styles.loginBtnLabel}
+          style={styles.loginBtn}
+          label={sendSmsButton.label}
+          onPress={sendSmsButton.onPress}
+      />
       )}
       {subFooter && (
         <View style={styles.subFooterContainer}>{subFooters(subFooter)}</View>

@@ -35,6 +35,10 @@ export default function Login() {
     });
   }
 
+  const handleSendSMS = () => {
+    console.log('Send SMS');
+  }
+
   const SMS_INPUT = [
     {
       icon: 'phone',
@@ -100,6 +104,11 @@ export default function Login() {
     }
   ]
 
+  const SEND_SMS_BUTTON = {
+    label: 'Send SMS',
+    onPress: () => handleSendSMS()
+  }
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -121,9 +130,7 @@ export default function Login() {
         <AuthForm 
           logo = {true}
           textInputs = {SMS_INPUT}
-          loginButton = {{
-            label: 'Login'
-          }}
+          sendSmsButton = {SEND_SMS_BUTTON}
           handleLogin = {handleSubmit}
           subFooter = {SMS_SUBFOOTER}
           footer = {FOOTER}
