@@ -7,6 +7,7 @@ import Grocery from "../screens/Grocery";
 import About from "../components/restaurantDetail/About";
 import Auth from '../screens/Auth';
 import Login from '../screens/Auth/Login';
+import EditInformation from '../screens/EditInformation';
 
 export const TAB_SCREENS = [
   {
@@ -35,6 +36,10 @@ export const AUTH_STACK_SCREENS = [
   {
     name: "About",
     component: RestaurantDetail
+  },
+  {
+    name: 'EditInformation',
+    component: EditInformation
   }
 ]
 
