@@ -10,22 +10,11 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [smsLogin, setSmsLogin] = useState(false);
+  const [setPhonenumber, setSetPhonenumber] = useState('');
   const dispatch = useDispatch();
 
   const smsSent = useSelector(state => state.userReducer.sentSms);
-
-  const handleUsernameChanged = (text) => {
-    setUsername(text);
-  }
-
-  const handlePasswordChanged = (text) => {
-    setPassword(text);
-  }
-
-  const clearInput = () => {
-    setUsername("");
-    setPassword("");
-  }
+  const sentPhonenumer = useSelector(state => state.userReducer.sentPhonenumer)
 
   const handleSubmit = () => {
     dispatch({
@@ -40,7 +29,9 @@ export default function Login() {
   const handleSendSMS = () => {
     dispatch({
       type: 'SMS_SEND',
-      payload: {}
+      payload: {
+        phonenumer: setPhonenumber
+      }
     })
   }
 
@@ -49,6 +40,8 @@ export default function Login() {
       icon: 'phone',
       label: 'Phone number',
       placeholder: 'Phone number',
+      onChange: (value) => setSetPhonenumber(value),
+      value: setPhonenumber
     }
   ]
 

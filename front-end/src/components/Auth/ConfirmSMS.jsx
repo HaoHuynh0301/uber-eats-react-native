@@ -20,7 +20,7 @@ export default function ConfirmSMS({ phonenumber }) {
   return (
     <View style={styles.container}>
       <Text>Verification code sent to phone number</Text>
-      <Text style={styles.sentPhonenumber}>0932843656</Text>
+      <Text style={styles.sentPhonenumber}>{phonenumber}</Text>
       <View style = {styles.confirmCodeContainer}>{confirmCode()}</View>
       <Button backgroundColor = 'black' label = 'Continue' style = {styles.continueBtn}/>
     </View>

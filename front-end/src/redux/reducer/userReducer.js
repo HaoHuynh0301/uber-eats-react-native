@@ -21,7 +21,8 @@ let defaultState = {
       value: ''
     },
   ],
-  sentSms: false
+  sentSms: false,
+  smsPhonenumber: ''
 }
 
 let userReducer = (state = defaultState, action) => {
@@ -29,7 +30,9 @@ let userReducer = (state = defaultState, action) => {
     case 'SMS_SEND':
       let newState = {...state};
       newState.sentSms = true;
-      console.log(newState);
+      if(action.payload) {
+        newState.smsPhonenumber = action.payload.phonenumer
+      }
       return newState;
     default: 
       return state;

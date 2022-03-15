@@ -14,7 +14,8 @@ export default function AuthForm(props) {
     subFooter,
     footer,
     sendSmsButton,
-    sentSms
+    sentSms,
+    sentPhonenumber
   } = props;
 
   const inputFields = (textInputs) =>
@@ -59,8 +60,6 @@ export default function AuthForm(props) {
       </TouchableOpacity>
     ));
 
-  console.log(sentSms);
-
   return (
     <SafeAreaView style={styles.container}>
       {logo && (
@@ -89,10 +88,10 @@ export default function AuthForm(props) {
           style={styles.loginBtn}
           label={sendSmsButton.label}
           onPress={sendSmsButton.onPress}
-      />
+        />
       )}
       {sentSms && (
-        <ConfirmSMS />
+        <ConfirmSMS phonenumber = '0932843656' />
       )}
       {subFooter && (
         <View style={styles.subFooterContainer}>{subFooters(subFooter)}</View>
