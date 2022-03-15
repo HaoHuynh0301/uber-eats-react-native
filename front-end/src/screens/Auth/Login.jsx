@@ -1,13 +1,50 @@
 import {
-  View,
-  Text,
   SafeAreaView,
-  TextInput,
-  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import styles from "./style /login.style";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import AuthForm from '../../components/Auth/AuthForm';
+
+const INPUT_FIELDS = [
+  {
+    icon: 'user',
+    label: 'Username',
+    placeholder: 'Username'
+  },
+  {
+    icon: 'link',
+    label: 'Password',
+    placeholder: 'Password',
+    isSecure: true
+  }
+]
+
+const SUBFOOTER = [
+  {
+    type: 'link',
+    label: 'Register',
+  },
+  {
+    type: 'link',
+    label: 'Register by SMS',
+  }
+]
+
+const FOOTER = [
+  {
+    icon: 'google',
+    label: 'Continue with Google'
+  },
+  {
+    icon: 'facebook',
+    label: 'Continue with Facebook'
+  },
+  {
+    icon: 'github',
+    label: 'Continue with Github'
+  }
+]
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -35,29 +72,23 @@ export default function Login() {
         password: 'password'
       }
     });
-    // clearInput();
   }
 
   return (
-    <SafeAreaView
+    <KeyboardAvoidingView
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+      behavior = "padding"
     >
-      <TextInput
-        onChangeText = {text => setUsername(text)}
-        style={styles.inputField}
-        value={username}
-        placeholder="Username"
+      <AuthForm 
+        logo = {true}
+        textInputs = {INPUT_FIELDS}
+        loginButton = {{
+          label: 'Login'
+        }}
+        handleLogin = {handleSubmit}
+        subFooter = {SUBFOOTER}
+        footer = {FOOTER}
       />
-      <TextInput
-        onChangeText = {text => handlePasswordChanged(text)}
-        secureTextEntry={true}
-        value={password}
-        style={styles.inputField}
-        placeholder="Password"
-      />
-      <TouchableOpacity onPress = {handleSubmit} style={styles.btnSubmit}>
-        <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 }

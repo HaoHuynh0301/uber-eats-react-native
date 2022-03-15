@@ -28,8 +28,7 @@ export default function HomePage({ navigation }) {
         <RestaurantItem data={restaurantItems} navigation={navigation} />
       </ScrollView>
 
-      <Divider width={1} />
-      {/* <BottomTabs navigation = {navigation} /> */}
+      {/* <Divider width={1} /> */}
     </SafeAreaView>
   );
 }
