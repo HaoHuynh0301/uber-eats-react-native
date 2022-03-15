@@ -20,11 +20,17 @@ let defaultState = {
       label: 'Date of birth',
       value: ''
     },
-  ]
+  ],
+  sentSms: false
 }
 
 let userReducer = (state = defaultState, action) => {
   switch(action.type) {
+    case 'SMS_SEND':
+      let newState = {...state};
+      newState.sentSms = true;
+      console.log(newState);
+      return newState;
     default: 
       return state;
   }

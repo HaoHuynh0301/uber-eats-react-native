@@ -3,7 +3,7 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AuthForm from '../../components/Auth/AuthForm';
 
 export default function Login() {
@@ -11,6 +11,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [smsLogin, setSmsLogin] = useState(false);
   const dispatch = useDispatch();
+
+  const smsSent = useSelector(state => state.userReducer.sentSms);
 
   const handleUsernameChanged = (text) => {
     setUsername(text);
@@ -36,7 +38,10 @@ export default function Login() {
   }
 
   const handleSendSMS = () => {
-    console.log('Send SMS');
+    dispatch({
+      type: 'SMS_SEND',
+      payload: {}
+    })
   }
 
   const SMS_INPUT = [
@@ -66,10 +71,6 @@ export default function Login() {
   ]
 
   const SMS_SUBFOOTER = [
-    {
-      type: 'link',
-      label: 'Register',
-    },
     {
       type: 'link',
       label: 'Login with password',
@@ -126,7 +127,14 @@ export default function Login() {
           footer = {FOOTER}
           handleSendSms = {() => setSmsLogin}
         />
-      ): (
+      ): smsSent ? (
+        <AuthForm 
+          logo = {true}
+          sentSms = {true}
+          subFooter = {SMS_SUBFOOTER}
+          footer = {FOOTER}
+        />
+      ) : (
         <AuthForm 
           logo = {true}
           textInputs = {SMS_INPUT}

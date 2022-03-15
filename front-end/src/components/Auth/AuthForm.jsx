@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./style/auth.style";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { Button, TextField } from "react-native-ui-lib";
+import ConfirmSMS from './ConfirmSMS';
 
 export default function AuthForm(props) {
   const {
@@ -12,7 +13,8 @@ export default function AuthForm(props) {
     handleLogin,
     subFooter,
     footer,
-    sendSmsButton
+    sendSmsButton,
+    sentSms
   } = props;
 
   const inputFields = (textInputs) =>
@@ -57,6 +59,8 @@ export default function AuthForm(props) {
       </TouchableOpacity>
     ));
 
+  console.log(sentSms);
+
   return (
     <SafeAreaView style={styles.container}>
       {logo && (
@@ -86,6 +90,9 @@ export default function AuthForm(props) {
           label={sendSmsButton.label}
           onPress={sendSmsButton.onPress}
       />
+      )}
+      {sentSms && (
+        <ConfirmSMS />
       )}
       {subFooter && (
         <View style={styles.subFooterContainer}>{subFooters(subFooter)}</View>
