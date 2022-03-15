@@ -12,6 +12,11 @@ let authReducer = (state = defaultState, action) => {
       }
       return newState;
     }
+    case "LOGOUT_REQUEST": {
+      let newState = { ...state };
+      newState.loggedIn = false;
+      return newState;
+    }
     default:
       return state;
   }

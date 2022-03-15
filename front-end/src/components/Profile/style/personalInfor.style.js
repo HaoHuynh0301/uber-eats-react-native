@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
   },
   itemLabel: {
     fontSize: 16
+  },
+  logoutBtn: {
+    marginTop: 10,
+    borderRadius: 0,
+    width: '95%',
+    alignSelf: 'center',
   }
 });
 
