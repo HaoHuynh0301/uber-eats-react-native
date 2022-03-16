@@ -1,11 +1,12 @@
 import { Text, TouchableOpacity, Modal, View } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles/viewCart.style";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import OrderMenu from "../OrderMenu";
 
 export default function ViewCart({ route, navigation }) {
   const [displayedModal, setDisplayedModal] = useState(false);
+  const dispatch = useDispatch();
 
   //Get seleted items stored with redux
   const selectedItems = useSelector(
@@ -20,6 +21,10 @@ export default function ViewCart({ route, navigation }) {
 
   const handleCheckout = () => {
     setDisplayedModal(false);
+    dispatch({
+      type: 'CHECKED_OUT_REQUEST',
+      payload: {}
+    })
     navigation.navigate("Orders", {});
   };
 
