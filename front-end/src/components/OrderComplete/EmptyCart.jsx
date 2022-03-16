@@ -6,7 +6,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 export default function EmptyCart({labels}) {
   const content = () =>
   labels.map((label, index) => (
-    <Text style={label.type === "sub-title" ? styles.subTitle : styles.content}>
+    <Text key = {index} style={label.type === "sub-title" ? styles.subTitle : styles.content}>
       {label.content}
     </Text>
   ));

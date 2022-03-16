@@ -54,7 +54,7 @@ export default function AuthForm(props) {
 
   const footerItems = (items) =>
     items.map((item, index) => (
-      <TouchableOpacity style={styles.footerItemsContainer}>
+      <TouchableOpacity key = {index} style={styles.footerItemsContainer}>
         <FontAwesome5 name={item.icon} size={20} />
         <Text style={styles.footIconLabel}>{item.label}</Text>
       </TouchableOpacity>

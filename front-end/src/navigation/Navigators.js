@@ -28,6 +28,7 @@ export const TabNavigatorContainer = () => (
   >
     {TAB_SCREENS.map((screen, index) => (
       <TabNavigator.Screen
+        key = {index}
         name={screen.name}
         component={screen.component}
         options={TAB_OPTIONS}

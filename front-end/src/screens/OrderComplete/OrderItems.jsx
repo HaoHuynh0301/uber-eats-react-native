@@ -13,7 +13,7 @@ const itemImage = (source) => (
 export default function OrderItems({items}) {
   const itemsView = items.map((item, index) => (
     <>
-      <View style = {styles.container}>
+      <View key = {index} style = {styles.container}>
         <View style = {styles.itemInforWrapper}> 
           <Text style = {styles.itemTitle}>{item.title}</Text>
           <Text style = {styles.itemDescription}>{item.description}</Text>
