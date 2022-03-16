@@ -2,11 +2,12 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import styles from "./style/header.style";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { Avatar, Button } from "react-native-ui-lib"; //eslint-disable-line
 
 const ProfileImage = () => (
   <View style={styles.profileInforWrapper}>
     <View style={styles.profileImgWrapper}>
-      <FontAwesome5 name={"user"} size={35} />
+      <Avatar backgroundColor="#FFFFFF" name="HH" />
     </View>
     <Text style={styles.usernameTxt}>Hao Huynh</Text>
   </View>

@@ -1,12 +1,11 @@
 import {
-  SafeAreaView,
   KeyboardAvoidingView
 } from "react-native";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AuthForm from '../../components/Auth/AuthForm';
 
-export default function Login() {
+export default function Login({navigation, route}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [smsLogin, setSmsLogin] = useState(false);
@@ -15,6 +14,10 @@ export default function Login() {
 
   const smsSent = useSelector(state => state.userReducer.sentSms);
   const sentPhonenumer = useSelector(state => state.userReducer.sentPhonenumer)
+
+  const handleRegister = () => {
+    navigation.navigate('Register', {});
+  }
 
   const handleSubmit = () => {
     dispatch({
@@ -75,6 +78,7 @@ export default function Login() {
     {
       type: 'link',
       label: 'Register',
+      onClick: () => handleRegister()
     },
     {
       type: 'link',

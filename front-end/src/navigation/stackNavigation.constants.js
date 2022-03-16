@@ -8,6 +8,7 @@ import About from "../components/restaurantDetail/About";
 import Auth from '../screens/Auth';
 import Login from '../screens/Auth/Login';
 import EditInformation from '../screens/EditInformation';
+import Register from "../screens/Auth/Register";
 
 export const TAB_SCREENS = [
   {
@@ -50,7 +51,7 @@ export const LOGIN_STACK_SCREENS = [
   },
   {
     name: "Register",
-    component: Auth
+    component: Register
   }
 ]
 
