@@ -1,8 +1,7 @@
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import styles from "./style/header.style";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { Avatar, Button } from "react-native-ui-lib"; //eslint-disable-line
+import { Avatar } from "react-native-ui-lib"; //eslint-disable-line
 
 const ProfileImage = () => (
   <View style={styles.profileInforWrapper}>

@@ -1,13 +1,15 @@
 import { Text, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./styles/order.style";
 import { ORDER_TITLE } from "./constants/order.constants";
 import OrderItems from "./OrderItems";
 import CheckingComponent from "../../components/OrderComplete/CheckingComponent";
 import CookingComponent from "../../components/OrderComplete/CookingComponent";
+import EmptyCart from '../../components/OrderComplete/EmptyCart';
 
 export default function OrderComplete() {
+  const dispatch = useDispatch();
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
   );
@@ -16,18 +18,26 @@ export default function OrderComplete() {
     0
   );
 
+  console.log(items.length);
+
   return (
     <SafeAreaView style={styles.container}>
-      <CheckingComponent styles={styles} />
-      <Text style={styles.orderTitle}>
-        {ORDER_TITLE(restaurantName, totalCost)}
-      </Text>
-
-      <ScrollView showVerticalScrollbar={false}>
-        <OrderItems items={items} />
-      </ScrollView>
-
-      <CookingComponent styles={styles} />
+      {items.length !== 0 ? (
+        <>
+          <CheckingComponent styles={styles} />
+          <Text style={styles.orderTitle}>
+            {ORDER_TITLE(restaurantName, totalCost)}
+          </Text>
+    
+          <ScrollView showVerticalScrollbar={false}>
+            <OrderItems items={items} />
+          </ScrollView>
+    
+          <CookingComponent styles={styles} />
+          </> 
+      ) : <>
+        <EmptyCart />
+      </>}
     </SafeAreaView>
   );
 }
