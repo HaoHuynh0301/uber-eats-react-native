@@ -10,9 +10,9 @@ export const BOTTOM_ICONS = [
     text: 'Browse'
   },
   {
-    name: 'Grocery',
+    name: 'Cart',
     icon: 'shopping-bag',
-    text: 'Grocery'
+    text: 'Cart'
   },
   {
     name: 'Orders',

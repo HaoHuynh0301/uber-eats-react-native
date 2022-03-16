@@ -24,8 +24,7 @@ export default function OrderItems({items}) {
       <Divider width = {1}/>
     </>
   ));
-
-
+  
   return(
     <View>
       {itemsView}

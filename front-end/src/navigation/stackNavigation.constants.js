@@ -1,14 +1,10 @@
 import HomePage from "../screens/Home";
 import RestaurantDetail from "../screens/RestaurantDetail";
 import OrderComplete from "../screens/OrderComplete";
-import Search from '../screens/Search';
 import Profile from "../screens/Profile";
 import Grocery from "../screens/Grocery";
-import About from "../components/restaurantDetail/About";
-import Auth from '../screens/Auth';
 import Login from '../screens/Auth/Login';
 import EditInformation from '../screens/EditInformation';
-import Register from "../screens/Auth/Register";
 
 export const TAB_SCREENS = [
   {
@@ -16,15 +12,11 @@ export const TAB_SCREENS = [
     component: HomePage
   },
   {
-    name: 'Search',
-    component: Search
-  },
-  {
     name: "Orders",
     component: OrderComplete,
   },
   {
-    name: 'Grocery',
+    name: 'Cart',
     component: Grocery
   },
   {
@@ -51,7 +43,7 @@ export const LOGIN_STACK_SCREENS = [
   },
   {
     name: "Register",
-    component: Register
+    component: Login
   }
 ]
 

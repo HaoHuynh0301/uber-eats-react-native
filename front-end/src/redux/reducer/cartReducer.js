@@ -1,5 +1,6 @@
 let defaultState = {
   selectedItems: { items: [], restaurantName: "" },
+  isCheckedOut: false
 };
 
 let cartReducer = (state = defaultState, action) => {
@@ -19,6 +20,10 @@ let cartReducer = (state = defaultState, action) => {
       }
       return newState;
     }
+    case 'CHECKED_OUT_REQUEST':
+      let newState = { ...state };
+      newState.isCheckedOut = true;
+      return newState;
     default: 
       return state;    
   }

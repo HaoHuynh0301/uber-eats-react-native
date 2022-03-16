@@ -13,18 +13,19 @@ export default function OrderComplete() {
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
   );
+  const {isCheckedOut} = useSelector(state => state.cartReducer);
   const totalCost = items.reduce(
     (cost, item, index, items) => (cost += item.price),
     0
   );
 
-  console.log(items.length);
+  console.log(isCheckedOut);
 
   return (
     <SafeAreaView style={styles.container}>
-      {items.length !== 0 ? (
+      {isCheckedOut ? (
         <>
-          <CheckingComponent styles={styles} />
+          <CheckingComponent styles={styles} speed = {0.5} />
           <Text style={styles.orderTitle}>
             {ORDER_TITLE(restaurantName, totalCost)}
           </Text>
@@ -32,9 +33,7 @@ export default function OrderComplete() {
           <ScrollView showVerticalScrollbar={false}>
             <OrderItems items={items} />
           </ScrollView>
-    
-          <CookingComponent styles={styles} />
-          </> 
+        </> 
       ) : <>
         <EmptyCart />
       </>}
