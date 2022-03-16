@@ -2,7 +2,7 @@ import HomePage from "../screens/Home";
 import RestaurantDetail from "../screens/RestaurantDetail";
 import OrderComplete from "../screens/OrderComplete";
 import Profile from "../screens/Profile";
-import Grocery from "../screens/Grocery";
+import Cart from "../screens/Cart";
 import Login from '../screens/Auth/Login';
 import EditInformation from '../screens/EditInformation';
 
@@ -17,7 +17,7 @@ export const TAB_SCREENS = [
   },
   {
     name: 'Cart',
-    component: Grocery
+    component: Cart
   },
   {
     name: 'Profile',

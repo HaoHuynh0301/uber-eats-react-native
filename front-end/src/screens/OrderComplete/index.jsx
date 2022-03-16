@@ -7,6 +7,7 @@ import OrderItems from "./OrderItems";
 import CheckingComponent from "../../components/OrderComplete/CheckingComponent";
 import CookingComponent from "../../components/OrderComplete/CookingComponent";
 import EmptyCart from '../../components/OrderComplete/EmptyCart';
+import {EMPTY_ORDER_LABEL} from '../../components/OrderComplete/constants/emptyOrder.constants';
 
 export default function OrderComplete() {
   const dispatch = useDispatch();
@@ -18,8 +19,6 @@ export default function OrderComplete() {
     (cost, item, index, items) => (cost += item.price),
     0
   );
-
-  console.log(isCheckedOut);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -35,7 +34,7 @@ export default function OrderComplete() {
           </ScrollView>
         </> 
       ) : <>
-        <EmptyCart />
+        <EmptyCart labels = {EMPTY_ORDER_LABEL} />
       </>}
     </SafeAreaView>
   );
