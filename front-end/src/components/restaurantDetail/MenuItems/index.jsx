@@ -7,12 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function MenuItems({ route }) {
   const { foodItem } = route.params.item;
-  const { restaurantName } = route.params.restaurantName || "";
+  const { restaurantName } = route.params.restaurantName;
 
   const dispatch = useDispatch();
   const selectedItems = useSelector(
     (state) => state.cartReducer.selectedItems.items
   );
+
+  console.log(route.params.restaurantName);
 
   //Check is the item was checked
   const isSelectedItem = (item) => {

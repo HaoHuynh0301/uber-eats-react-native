@@ -20,6 +20,8 @@ export default function Cart({ route, navigation }) {
     0
   );
 
+  console.log(restaurantName);
+
   const handleCheckout = () => {
     dispatch({
       type: 'CHECKED_OUT_REQUEST',
