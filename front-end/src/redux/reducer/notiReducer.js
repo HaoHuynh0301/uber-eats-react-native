@@ -1,7 +1,7 @@
 import {ERR_MSG} from '../constants/msg.constant';
 
 let defaultState = {
-  hideTime: 3500,
+  hideTime: 1000,
   visible: false,
   msg: 'hidden'
 };

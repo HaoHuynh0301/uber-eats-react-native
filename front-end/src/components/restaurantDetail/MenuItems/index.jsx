@@ -17,6 +17,8 @@ export default function MenuItems({ route, setVisible }) {
     (state) => state.cartReducer.selectedItems.restaurantName
   );
 
+  console.log(selectedRestaurantName);
+
   //Check is the item was checked
   const isSelectedItem = (item) => {
     const isChecked = selectedItems.find(({ title }) => title === item.title);
