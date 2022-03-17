@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-
+import { notiReducer } from "./notiReducer"; 
 import {cartReducer} from "./cartReducer";
 import {authReducer} from './authReducer';
 import {userReducer} from './userReducer';
@@ -7,7 +7,8 @@ import {userReducer} from './userReducer';
 let reducers = combineReducers({
   cartReducer: cartReducer,
   authReducer: authReducer,
-  userReducer: userReducer
+  userReducer: userReducer,
+  notiReducer: notiReducer
 });
 
 const rootReducer = (state, action) => {

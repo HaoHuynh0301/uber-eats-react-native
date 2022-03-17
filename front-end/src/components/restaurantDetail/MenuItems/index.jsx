@@ -5,7 +5,7 @@ import { Divider } from "react-native-elements";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function MenuItems({ route }) {
+export default function MenuItems({ route, setVisible }) {
   const { foodItem } = route.params.item;
   const { restaurantName } = route.params;
 
@@ -13,35 +13,49 @@ export default function MenuItems({ route }) {
   const selectedItems = useSelector(
     (state) => state.cartReducer.selectedItems.items
   );
+  const selectedRestaurantName = useSelector(
+    (state) => state.cartReducer.selectedItems.restaurantName
+  );
 
   //Check is the item was checked
   const isSelectedItem = (item) => {
-    const isChecked = selectedItems.find(({title}) => title === item.title);
+    const isChecked = selectedItems.find(({ title }) => title === item.title);
     return isChecked;
   };
 
-  const selectedItem = (item, checkboxValue) =>
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: {
-        ...item,
-        restaurantName: restaurantName,
-        checkboxValue: checkboxValue,
-      },
-  });
+  const selectedItem = (item, checkboxValue) => {
+    // restaurantName === selectedRestaurantName
+    if(selectedRestaurantName !== "" && restaurantName !== selectedRestaurantName) {
+      dispatch({
+        type: "SELECT_ITEM_ERR_MSG_REQUEST",
+        payload: {},
+      });
+    }
+    else {
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: {
+          ...item,
+          restaurantName: restaurantName,
+          checkboxValue: checkboxValue,
+        },
+      });
+    };
+  }
+    
 
   return (
     <ScrollView showVerticalScrollbar={false}>
       {foodItem.map((item, key) => (
-        <React.Fragment key = {key}>
+        <React.Fragment key={key}>
           <View style={styles.itemContainer} key={key}>
             <BouncyCheckbox
               iconStyle={{
                 borderColor: "#d9d9d9",
                 borderRadius: 5,
               }}
-              fillColor= 'green'
-              isChecked = {isSelectedItem(item)}
+              fillColor="green"
+              isChecked={isSelectedItem(item)}
               onPress={(checkboxValue) => selectedItem(item, checkboxValue)}
             />
             <View style={styles.itemInforContainer}>

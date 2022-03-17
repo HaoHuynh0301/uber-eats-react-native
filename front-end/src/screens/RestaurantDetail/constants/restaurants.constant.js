@@ -16,3 +16,10 @@ export const MENU_ITEMS = [
     placeholder: ''
   }
 ]
+
+export const MSG = [
+  {
+    type: 'MSG_ERR',
+    content: 'Please checkout before selecting another restaurant!'
+  }
+]
