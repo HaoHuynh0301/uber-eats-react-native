@@ -46,7 +46,6 @@ export default function RestaurantItems({ items, navigation }) {
     });
   return (
     <View style={styles.container}>
-      <CheckingComponent styles={styles} speed={0.5} />
       {renderItem()}
     </View>
   );

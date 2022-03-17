@@ -14,7 +14,6 @@ export default function Cart({ route, navigation }) {
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
   );
-  const isCheckedOut = useSelector(state => state.cartReducer.isCheckedOut);
   const totalCost = items.reduce(
     (cost, item, index, items) => (cost += item.price),
     0
@@ -46,7 +45,7 @@ export default function Cart({ route, navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      {items.length !== 0 && !isCheckedOut ? (
+      {items.length !== 0 ? (
         cartItems()
       ) : (
         <EmptyCart labels={EMPTY_CART_LABELS} />

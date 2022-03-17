@@ -1,6 +1,5 @@
 let defaultState = {
   selectedItems: { items: [], restaurantName: "" },
-  isCheckedOut: false,
   checkedoutItems: [],
 };
 
@@ -23,11 +22,13 @@ let cartReducer = (state = defaultState, action) => {
           restaurantName: action.payload.restaurantName,
         };
       }
+      if(newState.selectedItems.items.length === 0) {
+        newState.selectedItems.restaurantName = '';
+      }
       return newState;
     }
     case "CHECKED_OUT_REQUEST":
       let newState = { ...state };
-      newState.isCheckedOut = true;
       newState.checkedoutItems = [...newState.checkedoutItems, action.payload];
       newState.selectedItems = {items: [], restaurantName: ""}
       return newState;

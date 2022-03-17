@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     height: 150,
     flexDirection: "row",
     paddingHorizontal: 10,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    marginVertical: 5
   },
   itemImage: {
     height: "85%",
