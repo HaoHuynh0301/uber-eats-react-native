@@ -24,7 +24,6 @@ export default function Cart({ route, navigation }) {
       type: 'CHECKED_OUT_REQUEST',
       payload: {}
     });
-    navigation.navigate('Orders', {})
   }
 
   const handleOnScroll = (e) => {
@@ -39,7 +38,15 @@ export default function Cart({ route, navigation }) {
       <ScrollView onScroll={handleOnScroll} showVerticalScrollbar={false}>
         <OrderItems items={items} />
       </ScrollView>
-      <FloatingButton onPress = {handleCheckout} />
+      <FloatingButton onPress = {() => {
+        dispatch({
+          type: 'CHECKED_OUT_REQUEST',
+          payload: {
+            items: items,
+            restaurantName: restaurantName
+          }
+        });
+      }} />
     </>
   );
 

@@ -2,11 +2,13 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    height: 70,
-    width: 70,
+    height: 50,
+    width: 150,
     position: 'absolute',
     bottom: 40,
-    right: 20,
+    right: '30.5%',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

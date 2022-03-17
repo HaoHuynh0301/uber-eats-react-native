@@ -10,7 +10,7 @@ export default function FloatingButton({onPress}) {
       size={Button.sizes.xSmall}
       enableShadow={true}
       backgroundColor="black"
-      label = {'✓'}
+      label = {'Checkout'}
       disabled = {false}
       onPress = {onPress}
     />
