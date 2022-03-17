@@ -19,9 +19,7 @@ export default function Cart({ route, navigation }) {
     (cost, item, index, items) => (cost += item.price),
     0
   );
-
-  console.log(restaurantName);
-
+  
   const handleCheckout = () => {
     dispatch({
       type: 'CHECKED_OUT_REQUEST',

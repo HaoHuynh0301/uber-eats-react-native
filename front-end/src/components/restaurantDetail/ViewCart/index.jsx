@@ -13,6 +13,10 @@ export default function ViewCart({ route, navigation }) {
     (state) => state.cartReducer.selectedItems.items
   );
 
+  const restaurantName = useSelector(
+    (state) => state.cartReducer.selectedItems.restaurantName
+  );
+
   //Count total cost of selected items
   const totalCost = selectedItems.reduce(
     (cost, item, index, selectedItems) => (cost += item.price),
@@ -22,9 +26,12 @@ export default function ViewCart({ route, navigation }) {
   const handleCheckout = () => {
     setDisplayedModal(false);
     dispatch({
-      type: 'CHECKED_OUT_REQUEST',
-      payload: {}
-    })
+      type: "CHECKED_OUT_REQUEST",
+      payload: {
+        items: selectedItems,
+        restaurantName: restaurantName
+      },
+    });
     navigation.navigate("Orders", {});
   };
 
