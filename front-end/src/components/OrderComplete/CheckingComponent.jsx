@@ -6,7 +6,7 @@ export default function CheckingComponent({styles, speed}) {
     <LottieView
       autoPlay = {false}
       loop = {false}
-      speed={0.5}
+      // speed={0.5}
       style={styles.lottieViewContainer}
       source={require("../../assets/animation/checkIconAnimation.json")}
     />

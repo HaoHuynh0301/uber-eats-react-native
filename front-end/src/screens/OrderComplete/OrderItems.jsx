@@ -12,8 +12,8 @@ const itemImage = (source) => (
 
 export default function OrderItems({items}) {
   const itemsView = items.map((item, index) => (
-    <>
-      <View key = {index} style = {styles.container}>
+    <React.Fragment key = {index}>
+      <View style = {styles.container}>
         <View style = {styles.itemInforWrapper}> 
           <Text style = {styles.itemTitle}>{item.title}</Text>
           <Text style = {styles.itemDescription}>{item.description}</Text>
@@ -22,7 +22,7 @@ export default function OrderItems({items}) {
         {itemImage(item.image)}
       </View>
       <Divider width = {1}/>
-    </>
+    </React.Fragment>
   ));
   
   return(
