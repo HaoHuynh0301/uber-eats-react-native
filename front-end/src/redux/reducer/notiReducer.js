@@ -13,7 +13,6 @@ let notiReducer = (state = defaultState, action) => {
       const msg = ERR_MSG.find(msg => msg.type === action.type);
       newState.visible = true;
       newState.msg = msg.content;
-      console.log(newState);
       return newState;
     }
     case 'HIDE_SELECT_ITEM_ERR_MSG_REQUEST': {

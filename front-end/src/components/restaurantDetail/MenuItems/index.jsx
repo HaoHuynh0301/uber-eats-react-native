@@ -24,7 +24,6 @@ export default function MenuItems({ route, setVisible }) {
   };
 
   const selectedItem = (item, checkboxValue) => {
-    // restaurantName === selectedRestaurantName
     if(selectedRestaurantName !== "" && restaurantName !== selectedRestaurantName) {
       dispatch({
         type: "SELECT_ITEM_ERR_MSG_REQUEST",
@@ -40,10 +39,10 @@ export default function MenuItems({ route, setVisible }) {
           checkboxValue: checkboxValue,
         },
       });
+      return true;
     };
   }
     
-
   return (
     <ScrollView showVerticalScrollbar={false}>
       {foodItem.map((item, key) => (
@@ -53,10 +52,12 @@ export default function MenuItems({ route, setVisible }) {
               iconStyle={{
                 borderColor: "#d9d9d9",
                 borderRadius: 5,
+                visible: false,
               }}
               fillColor="green"
               isChecked={isSelectedItem(item)}
               onPress={(checkboxValue) => selectedItem(item, checkboxValue)}
+              disableBuiltInState = {selectedRestaurantName !== "" && restaurantName !== selectedRestaurantName}
             />
             <View style={styles.itemInforContainer}>
               <Text style={styles.itemTitle}>{item.title}</Text>
