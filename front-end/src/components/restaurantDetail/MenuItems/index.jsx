@@ -33,7 +33,7 @@ export default function MenuItems({ route }) {
   return (
     <ScrollView showVerticalScrollbar={false}>
       {foodItem.map((item, key) => (
-        <>
+        <React.Fragment key = {key}>
           <View style={styles.itemContainer} key={key}>
             <BouncyCheckbox
               iconStyle={{
@@ -62,7 +62,7 @@ export default function MenuItems({ route }) {
             />
           </View>
           <Divider width={0.3} />
-        </>
+        </React.Fragment>
       ))}
     </ScrollView>
   );

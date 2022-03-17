@@ -7,14 +7,14 @@ import {Divider } from "react-native-elements";
 
 let categoriesList = () =>
   CATEGORIES.map((item, index) => (
-    <>
-      <TouchableOpacity key = {index}>
+    <React.Fragment key = {index}>
+      <TouchableOpacity>
         <View style={styles.cateWrapper} key={index}>
           <Image source={item.image} style={styles.cateImage} />
           <Text style={styles.cateText}>{item.text}</Text>
         </View>
       </TouchableOpacity>
-    </>
+    </React.Fragment>
   ));
 
 export default function Categories(props) {

@@ -2,8 +2,12 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "./styles/restaurantItems.style";
 import { ITEMS } from "../home/RestaurantItem/item.constants";
+import CheckingComponent from "./CheckingComponent";
 
-export default function RestaurantItems({ items }) {
+export default function RestaurantItems({ items, navigation }) {
+  const handleOpenOrderDetail = (item) => {
+    navigation.navigate('OrderDetail', item);
+  }
   const renderItem = () =>
     items.map((item, index) => {
       const totalCost = item.items.reduce(
@@ -14,7 +18,7 @@ export default function RestaurantItems({ items }) {
         (restaurant) => restaurant.name === item.restaurantName
       );
       return (
-        <TouchableOpacity activeOpacity = {0.5} style={styles.resItemContainer} key={index}>
+        <TouchableOpacity onPress = {() => handleOpenOrderDetail()} activeOpacity = {0.5} style={styles.resItemContainer} key={index}>
           <Image style={styles.itemImage} source={restaurantDescription.image} />
           <View style={styles.resInforContainer}>
             <Text style = {styles.restaurantName}>{item.restaurantName}</Text>
@@ -26,5 +30,8 @@ export default function RestaurantItems({ items }) {
         </TouchableOpacity>
       );
     });
-  return <View style={styles.container}>{renderItem()}</View>;
+  return <View style={styles.container}>
+    <CheckingComponent styles = {styles} speed={0.5} />
+    {renderItem()}
+    </View>;
 }

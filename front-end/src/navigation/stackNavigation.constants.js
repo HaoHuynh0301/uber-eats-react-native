@@ -5,6 +5,7 @@ import Profile from "../screens/Profile";
 import Cart from "../screens/Cart";
 import Login from '../screens/Auth/Login';
 import EditInformation from '../screens/EditInformation';
+import OrderDetail from '../screens/OrderDetail';
 
 export const TAB_SCREENS = [
   {
@@ -33,6 +34,10 @@ export const AUTH_STACK_SCREENS = [
   {
     name: 'EditInformation',
     component: EditInformation
+  },
+  {
+    name: 'OrderDetail',
+    component: OrderDetail
   }
 ]
 

@@ -44,7 +44,7 @@ export default function AuthForm(props) {
   const subFooters = (subFooters) =>
     subFooters.map((subFooter, index) => {
       return (
-        <TouchableOpacity onPress={subFooter.onClick}>
+        <TouchableOpacity key = {index} onPress={subFooter.onClick}>
           <Text style={styles.linkLabel} key={index}>
             {subFooter.label}
           </Text>

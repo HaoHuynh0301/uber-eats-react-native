@@ -6,9 +6,11 @@ const styles = StyleSheet.create({
   },
   resItemContainer: {
     width: "100%",
-    borderWidth: 0.5,
+    borderWidth: 0,
     height: 150,
     flexDirection: "row",
+    paddingHorizontal: 10,
+    backgroundColor: 'white'
   },
   itemImage: {
     height: "85%",
