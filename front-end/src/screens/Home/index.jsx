@@ -4,37 +4,58 @@ import SearchBar from "../../components/home/SearchBar";
 import Categories from "../../components/home/Categories";
 import RestaurantItem from "../../components/home/RestaurantItem";
 import { ITEMS } from "../../components/home/RestaurantItem/item.constants";
+import {CATEGORIES} from '../../components/home/Categories/categories.constants';
 import styles from "./style";
 
 export default function HomePage({ navigation }) {
   const [restaurantItems, setRestaurantItems] = useState(ITEMS);
+  const [category, setCategory] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  //Find restaurant's name whenever search value changed
 
+  //Find restaurant's name whenever search value changed
   useEffect(() => {
-    if(searchValue !== "") {
-      let res = [...restaurantItems]
+    if (searchValue !== "") {
+      let res = [...ITEMS];
       restaurantItems.map((item) => {
-        if(item.name.includes(searchValue)) {
-          res = [...res.filter(res => res === item)];
+        if (item.name.includes(searchValue)) {
+          res = [...res.filter((res) => res === item)];
         }
-      })
+      });
       setRestaurantItems([...res]);
     } else setRestaurantItems([...ITEMS]);
   }, [searchValue]);
+
+  useEffect(() => {
+    if(category !== "") {
+      let res = [...ITEMS];
+      console.log(category);
+      res.map(item => {
+        if(item.categories.find(item => item === category)) {
+          res = [...res.filter(res => res === item)];
+        }
+      });
+      setRestaurantItems([...res]);
+    } else setCategory("");
+  }, [category]);
+
+  const handleClearSearch = () => {
+    setSearchValue("");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
         {/* <HeaderTab /> */}
-        <SearchBar onChange={setSearchValue} value={searchValue} />
+        <SearchBar
+          clearData={handleClearSearch}
+          onChange={setSearchValue}
+          value={searchValue}
+        />
       </View>
-
       <ScrollView showVerticalScrollbar={false}>
-        <Categories />
+        <Categories data = {CATEGORIES} onSelected = {setCategory} />
         <RestaurantItem data={restaurantItems} navigation={navigation} />
       </ScrollView>
-
       {/* <Divider width={1} /> */}
     </SafeAreaView>
   );

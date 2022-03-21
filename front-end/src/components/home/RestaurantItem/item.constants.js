@@ -23,7 +23,8 @@ const ITEMS = [
         image: require('../../../assets/image/gaxotcay.png'),
         placeholder: ''
       }
-    ]
+    ],
+    categories: ['FAST FOOD']
   },
   {
     image: require("../../../assets/image/1-khach-san-ninh-kieu-II-can-tho.jpeg"),
@@ -57,8 +58,9 @@ const ITEMS = [
         image: require('../../../assets/image/burgerkfc.png'),
         placeholder: ''
       }
-    ]
-  },
+    ],
+    categories: ['BAKERY']
+  }
 ];
 
 export { ITEMS };

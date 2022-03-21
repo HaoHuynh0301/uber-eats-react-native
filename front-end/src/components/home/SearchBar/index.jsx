@@ -5,7 +5,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 export default function SearchBar(props) {
   let value = props.value || "";
-  const { onChange } = props;
+  const { onChange, clearData} = props;
   return (
     <View style={styles.container}>
       <FontAwesome5 name={"search"} size={18} />
@@ -16,7 +16,7 @@ export default function SearchBar(props) {
         placeholder="Search"
       />
       {value !== "" && (
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {clearData}>
           <FontAwesome5 name = {'times'} size = {17}/>
         </TouchableOpacity>
       )}
