@@ -27,13 +27,13 @@ export default function HomePage({ navigation }) {
 
   useEffect(() => {
     if (category !== "") {
-      let res = [...ITEMS];
+      let res = searchValue !== "" ? [...restaurantItems] : [...ITEMS];
       res.map((item) => {
         if (item.categories.find((item) => item === category)) {
           res = [...res.filter((res) => res === item)];
+          setRestaurantItems([...res]);
         }
       });
-      setRestaurantItems([...res]);
     } else setRestaurantItems([...ITEMS]);
   }, [category]);
 
