@@ -7,6 +7,7 @@ import OrderItems from "../../components/OrderComplete/OrderItems";
 import EmptyCart from "../../components/OrderComplete/EmptyCart";
 import { EMPTY_CART_LABELS } from "./constants/cart.constants";
 import FloatingButton from "../../components/FloatingButton";
+import ShoppingCartIcon from '../../components/Cart/ShoppingCartIcon';
 
 export default function Cart({ route, navigation }) {
   const [scroll, setScroll] = useState(false);
@@ -18,13 +19,6 @@ export default function Cart({ route, navigation }) {
     (cost, item, index, items) => (cost += item.price),
     0
   );
-  
-  const handleCheckout = () => {
-    dispatch({
-      type: 'CHECKED_OUT_REQUEST',
-      payload: {}
-    });
-  }
 
   const handleOnScroll = (e) => {
     console.log(e.nativeEvent.contentOffset);
@@ -53,7 +47,11 @@ export default function Cart({ route, navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       {items.length !== 0 ? (
-        cartItems()
+        <>
+          <ShoppingCartIcon />
+          {cartItems()}
+        </>
+        
       ) : (
         <EmptyCart labels={EMPTY_CART_LABELS} />
       )}

@@ -19,7 +19,7 @@ export default function HomePage({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
-        <HeaderTab />
+        {/* <HeaderTab /> */}
         <SearchBar />
       </View>
 
