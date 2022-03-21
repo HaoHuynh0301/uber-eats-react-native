@@ -17,7 +17,11 @@ export const TabNavigatorContainer = () => (
             <FontAwesome5
               name={screen.icon}
               size={20}
-              style={{ marginTop: 5, alignSelf: "center" }}
+              style={{
+                marginTop: 5,
+                alignSelf: "center",
+                color: focused ? "tomato" : 'black'
+              }}
             />
           );
         }
@@ -28,7 +32,7 @@ export const TabNavigatorContainer = () => (
   >
     {TAB_SCREENS.map((screen, index) => (
       <TabNavigator.Screen
-        key = {index}
+        key={index}
         name={screen.name}
         component={screen.component}
         options={TAB_OPTIONS}
