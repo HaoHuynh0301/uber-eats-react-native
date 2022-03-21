@@ -1,21 +1,18 @@
-import { View, Text } from "react-native";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { View, TextInput } from "react-native";
 import styles from "./style/searchBar.style";
 import React from "react";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 export default function SearchBar(props) {
+  let value = props.value || "";
+  const { onChange } = props;
   return (
     <View style={styles.container}>
-      <GooglePlacesAutocomplete
-        query={{key: "AIzaSyB77rLQorMj8IlLsLw-1zE-utEUk29-_2s"}}
-        styles={{
-          textInput: {
-            backgroundColor: "#e6e6e6",
-            borderRadius: 20,
-            fontWeight: "bold",
-            height: 40
-          },
-        }}
+      <FontAwesome5 name={"search"} size={18} />
+      <TextInput
+        onChangeText={onChange}
+        value={value}
+        style={styles.textInput}
         placeholder="Search"
       />
     </View>
