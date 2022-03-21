@@ -4,7 +4,7 @@ import SearchBar from "../../components/home/SearchBar";
 import Categories from "../../components/home/Categories";
 import RestaurantItem from "../../components/home/RestaurantItem";
 import { ITEMS } from "../../components/home/RestaurantItem/item.constants";
-import {CATEGORIES} from '../../components/home/Categories/categories.constants';
+import { CATEGORIES } from "../../components/home/Categories/categories.constants";
 import styles from "./style";
 
 export default function HomePage({ navigation }) {
@@ -26,21 +26,26 @@ export default function HomePage({ navigation }) {
   }, [searchValue]);
 
   useEffect(() => {
-    if(category !== "") {
+    if (category !== "") {
       let res = [...ITEMS];
-      console.log(category);
-      res.map(item => {
-        if(item.categories.find(item => item === category)) {
-          res = [...res.filter(res => res === item)];
+      res.map((item) => {
+        if (item.categories.find((item) => item === category)) {
+          res = [...res.filter((res) => res === item)];
         }
       });
       setRestaurantItems([...res]);
-    } else setCategory("");
+    } else setRestaurantItems([...ITEMS]);
   }, [category]);
 
   const handleClearSearch = () => {
     setSearchValue("");
   };
+
+  const handleCategorySelected = (prevValue, insValue) => {
+    if(prevValue === insValue) {
+      setCategory('');
+    } else setCategory(insValue);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -53,7 +58,11 @@ export default function HomePage({ navigation }) {
         />
       </View>
       <ScrollView showVerticalScrollbar={false}>
-        <Categories data = {CATEGORIES} onSelected = {setCategory} />
+        <Categories
+          selectedValue={category}
+          data={CATEGORIES}
+          onSelected={handleCategorySelected}
+        />
         <RestaurantItem data={restaurantItems} navigation={navigation} />
       </ScrollView>
       {/* <Divider width={1} /> */}
