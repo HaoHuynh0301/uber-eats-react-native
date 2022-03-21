@@ -1,4 +1,4 @@
-import { View, TextInput } from "react-native";
+import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import styles from "./style/searchBar.style";
 import React from "react";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
@@ -15,6 +15,11 @@ export default function SearchBar(props) {
         style={styles.textInput}
         placeholder="Search"
       />
+      {value !== "" && (
+        <TouchableOpacity>
+          <FontAwesome5 name = {'times'} size = {17}/>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }

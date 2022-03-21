@@ -11,7 +11,12 @@ const styles = StyleSheet.create({
     paddingLeft: 20
   },
   textInput: {
-    marginLeft: 15
+    marginLeft: 15,
+    width: '80%',
+  },
+  xIcon: {
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 });
 
