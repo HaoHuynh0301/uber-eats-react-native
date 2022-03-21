@@ -28,13 +28,16 @@ export default function HomePage({ navigation }) {
   useEffect(() => {
     if (category !== "") {
       let res = searchValue !== "" ? [...restaurantItems] : [...ITEMS];
+      let f = false;
       res.map((item) => {
         if (item.categories.find((item) => item === category)) {
           res = [...res.filter((res) => res === item)];
           setRestaurantItems([...res]);
+          f = true;
         }
       });
-    } else setRestaurantItems([...ITEMS]);
+      if(!f) setRestaurantItems([]) 
+    } else setRestaurantItems(ITEMS);
   }, [category]);
 
   const handleClearSearch = () => {
@@ -50,7 +53,6 @@ export default function HomePage({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
-        {/* <HeaderTab /> */}
         <SearchBar
           clearData={handleClearSearch}
           onChange={setSearchValue}
