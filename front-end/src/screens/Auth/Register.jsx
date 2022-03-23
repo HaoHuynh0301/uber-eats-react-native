@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthForm from "../../components/Auth/AuthForm";
 import styles from "./style /register.style";
 
@@ -22,9 +22,15 @@ export default function Register({ navigation, route }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [conPassword, setConPassword] = useState("");
-  const [propsCheck, setPropsCheck] = useState(false);
-  const [validInfot, setValidInfor] = useState(false);
-  
+  const [validInfor, setValidInfor] = useState(false);
+  const [usernameValid, setUsernameValid] = useState(false);
+  const [passwordValid, setpasswordValid] = useState(false);
+  const [conPasswordValid, setConPasswordValid] = useState(false);
+
+  useEffect(() => {
+    if(usernameValid && passwordValid &&  conPasswordValid) setValidInfor(true);
+  }, [usernameValid, passwordValid, conPasswordValid]);
+
   const INPUT_FIELDS = [
     {
       icon: "user",
@@ -34,8 +40,8 @@ export default function Register({ navigation, route }) {
       value: username,
       validate: ['required', value => value.length >= 6],
       errorMessage: ["This field is required", "The length of the username must be more than 6 characters"],
-      handleError: () => {
-
+      onChangeValidity: (isValid) => {
+        setUsernameValid(isValid);
       }
     },
     {
@@ -47,6 +53,9 @@ export default function Register({ navigation, route }) {
       value: password,
       validate: ['required', value => !value.includes(username), value => value.length > 6],
       errorMessage: ["This field is required", "Password should not contain username", "The length of the username must be more than 6 characters"]
+      ,onChangeValidity: (isValid) => {
+        setpasswordValid(isValid);
+      }
     },
     {
       icon: "link",
@@ -57,6 +66,9 @@ export default function Register({ navigation, route }) {
       value: conPassword,
       validate: ['required', value => value === password],
       errorMessage: ["This field is required", "Password does not match"]
+      ,onChangeValidity: (isValid) => {
+        setConPasswordValid(isValid);
+      }
     },
   ];
 
@@ -73,10 +85,7 @@ export default function Register({ navigation, route }) {
   ];
 
   const handleRegister = () => {
-    if (username.length >= 6 && password.length >= 6 && conPassword >= 6) {
-      navigation.navigate("Login", {});
-    };
-    
+    navigation.navigate("Login", {});
   };
 
   return (
@@ -87,11 +96,11 @@ export default function Register({ navigation, route }) {
         subFooter={SUBFOOTER}
         footer={FOOTER}
         handleLogin={handleRegister}
-        propsCheck={propsCheck}
         loginButton={{
           label: "Register",
         }}
-
+        setValidInfor={setValidInfor}
+        validInfor={validInfor}
       />
     </KeyboardAvoidingView>
   );

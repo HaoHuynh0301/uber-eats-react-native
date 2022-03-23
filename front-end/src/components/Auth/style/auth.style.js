@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     width: '80%',
     height: 40,
     alignSelf: 'center',
-    marginTop: 10,
+    marginTop: 30,
   },
   loginBtnLabel: {
     color: 'white',

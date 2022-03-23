@@ -15,8 +15,7 @@ export default function AuthForm(props) {
     footer,
     sendSmsButton,
     sentSms,
-    sentPhonenumber,
-    propsCheck
+    validInfor
   } = props;
 
   const inputFields = (textInputs) =>
@@ -32,9 +31,11 @@ export default function AuthForm(props) {
           enableErrors
           onError={input.handleError}
           validate={input.validate}
+          onChangeValidity={isValid => {input.onChangeValidity(isValid)}}
           onChangeText={(value) => input.onChange(value)}
           errorMessage= {input.errorMessage}
           secureTextEntry={input.isSecure}
+          validateOnChange={true}
           placeholder={input.placeholder}
           floatingPlaceholder
           floatingPlaceholderStyle={{ color: "black" }}
@@ -81,6 +82,7 @@ export default function AuthForm(props) {
           style={styles.loginBtn}
           label={loginButton.label}
           onPress={handleLogin}
+          disabled={!validInfor}
         />
       )}
       {sendSmsButton && (
