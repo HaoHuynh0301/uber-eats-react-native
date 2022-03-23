@@ -33,7 +33,7 @@ const ScreenStackNavigator = () => (
   </ScreenNavigator.Navigator>
 );
 
-export default function RootNavigation({ auth }) {
+export default function RootNavigation() {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.authReducer.loggedIn);
     

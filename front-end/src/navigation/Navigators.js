@@ -10,7 +10,7 @@ export const TabNavigatorContainer = () => (
   <TabNavigator.Navigator
     initialRouteName="Home"
     screenOptions={({ route }) => ({
-      tabBarIcon: ({ focused, color, size }) => {
+      tabBarIcon: ({ focused }) => {
         let screen = BOTTOM_ICONS.find((screen) => screen.name === route.name);
         if (screen && screen.name !== "About") {
           return (
@@ -18,9 +18,9 @@ export const TabNavigatorContainer = () => (
               name={screen.icon}
               size={20}
               style={{
-                marginTop: 5,
+                marginTop: 10,
                 alignSelf: "center",
-                color: focused ? "tomato" : 'black'
+                color: focused ? "tomato" : "black",
               }}
             />
           );
@@ -29,6 +29,7 @@ export const TabNavigatorContainer = () => (
       tabBarActiveTintColor: "tomato",
       tabBarInactiveTintColor: "gray",
     })}
+    
   >
     {TAB_SCREENS.map((screen, index) => (
       <TabNavigator.Screen
@@ -36,6 +37,7 @@ export const TabNavigatorContainer = () => (
         name={screen.name}
         component={screen.component}
         options={TAB_OPTIONS}
+        
       />
     ))}
   </TabNavigator.Navigator>

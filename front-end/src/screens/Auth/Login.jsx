@@ -10,6 +10,7 @@ export default function Login({navigation, route}) {
   const [password, setPassword] = useState("");
   const [smsLogin, setSmsLogin] = useState(false);
   const [setPhonenumber, setSetPhonenumber] = useState('');
+  const [propsCheck, setPropsCheck] = useState(false);
   const dispatch = useDispatch();
 
   const smsSent = useSelector(state => state.userReducer.sentSms);
@@ -20,6 +21,7 @@ export default function Login({navigation, route}) {
   }
 
   const handleSubmit = () => {
+    setPropsCheck(true);
     dispatch({
       type: 'LOGIN_REQUEST',
       payload: {
@@ -121,6 +123,7 @@ export default function Login({navigation, route}) {
           }}
           handleLogin = {handleSubmit}
           subFooter = {SUBFOOTER}
+          propsCheck = {propsCheck}
           footer = {FOOTER}
           handleSendSms = {() => setSmsLogin}
         />

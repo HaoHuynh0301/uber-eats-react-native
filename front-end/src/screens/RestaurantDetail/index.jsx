@@ -8,7 +8,6 @@ import { Divider } from "react-native-elements";
 import { Incubator } from "react-native-ui-lib";
 import { useSelector, useDispatch } from "react-redux";
 import { MSG } from "./constants/restaurants.constant";
-
 const { Toast } = Incubator;
 
 export default function RestaurantDetail({ route, navigation }) {

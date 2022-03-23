@@ -15,7 +15,8 @@ export default function AuthForm(props) {
     footer,
     sendSmsButton,
     sentSms,
-    sentPhonenumber
+    sentPhonenumber,
+    propsCheck
   } = props;
 
   const inputFields = (textInputs) =>
@@ -29,9 +30,10 @@ export default function AuthForm(props) {
         <TextField
           value={input.value}
           enableErrors
-          validate={['required', (value) => value.length > 6]}
-          validationMessage={['Field is required']}
+          onError={input.handleError}
+          validate={input.validate}
           onChangeText={(value) => input.onChange(value)}
+          errorMessage= {input.errorMessage}
           secureTextEntry={input.isSecure}
           placeholder={input.placeholder}
           floatingPlaceholder

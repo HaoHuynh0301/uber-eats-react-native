@@ -24,4 +24,9 @@ export const BOTTOM_ICONS = [
     icon: 'user',
     text: 'Profile'
   },
+  {
+    name: 'Add',
+    icon: 'user',
+    text: ''
+  }
 ]

@@ -6,6 +6,7 @@ import Cart from "../screens/Cart";
 import Login from '../screens/Auth/Login';
 import EditInformation from '../screens/EditInformation';
 import OrderDetail from '../screens/OrderDetail';
+import Register from "../screens/Auth/Register";
 
 export const TAB_SCREENS = [
   {
@@ -48,7 +49,7 @@ export const LOGIN_STACK_SCREENS = [
   },
   {
     name: "Register",
-    component: Login
+    component: Register
   }
 ]
 
