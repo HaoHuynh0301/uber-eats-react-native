@@ -82,7 +82,7 @@ export default function AuthForm(props) {
           style={styles.loginBtn}
           label={loginButton.label}
           onPress={handleLogin}
-          disabled={!validInfor}
+          disabled={loginButton.label !== "Login" && !validInfor}
         />
       )}
       {sendSmsButton && (

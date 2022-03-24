@@ -123,7 +123,6 @@ export default function Login({navigation, route}) {
           }}
           handleLogin = {handleSubmit}
           subFooter = {SUBFOOTER}
-          propsCheck = {propsCheck}
           footer = {FOOTER}
           handleSendSms = {() => setSmsLogin}
         />

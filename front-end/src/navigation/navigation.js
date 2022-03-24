@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { TAB_OPTIONS } from "./screen.option";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TabNavigatorContainer, StackScreens } from "./Navigators";
 import { LOGIN_STACK_SCREENS } from "./stackNavigation.constants";
 import {useDispatch, useSelector} from 'react-redux';
+import {Image, View} from 'react-native';
 
 const ScreenNavigator = createNativeStackNavigator();
 const LoginNavigator = createNativeStackNavigator();
@@ -34,9 +35,20 @@ const ScreenStackNavigator = () => (
 );
 
 export default function RootNavigation() {
-  const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.authReducer.loggedIn);
-    
+  const [loadingState, setLoadingState] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() =>{
+      setLoadingState(false);
+    }, 3000);
+  }, []);
+
+  if(loadingState) return(
+    <View style = {{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Image style = {{width: 200, height: 200}} source = {require('../assets/animation/99778-my-store-animated.gif')}/>
+    </View>
+  ); 
   return(
     <NavigationContainer>
       {loggedIn ? ScreenStackNavigator() : LoginStackNavigator()}

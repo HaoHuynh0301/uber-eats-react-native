@@ -1,5 +1,6 @@
 const defaultState = {
   loggedIn: false,
+  
 };
 
 let authReducer = (state = defaultState, action) => {
