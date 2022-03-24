@@ -4,10 +4,10 @@ import React from "react";
 export default function DeliveryIcon() {
   return (
     <Image
-      // source={require("../../assets/animation/delivery.gif")}
+      source={require("../../assets/animation/99271-food-out-for-delivery.gif")}
       style={{
-        height: 100,
-        width: 100,
+        height: 200,
+        width: 200,
         alignSelf: "center",
         margin: 20,
       }}

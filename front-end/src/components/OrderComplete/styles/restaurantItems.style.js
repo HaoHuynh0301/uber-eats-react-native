@@ -11,7 +11,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: 10,
     backgroundColor: 'white',
-    marginVertical: 5
+    marginVertical: 5,
+    borderWidth: 0.2, 
+    borderColor: 'silver',
+    borderRadius: 20
   },
   itemImage: {
     height: "85%",

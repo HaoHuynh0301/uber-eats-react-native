@@ -6,6 +6,7 @@ import EmptyCart from "../../components/OrderComplete/EmptyCart";
 import { EMPTY_ORDER_LABEL } from "../../components/OrderComplete/constants/emptyOrder.constants";
 import RestaurantItems from "../../components/OrderComplete/RestaurantItems";
 import DeliveryIcon from "../../components/OrderComplete/DeliveryIcon";
+import {Colors, Text, Fader, withScrollReached, WithScrollReachedProps} from 'react-native-ui-lib';
 
 export default function OrderComplete({navigation}) {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function OrderComplete({navigation}) {
         <EmptyCart labels={EMPTY_ORDER_LABEL} />
       </SafeAreaView>
     ) : (
-      <View style = {{flex: 1, backgroundColor: '#f2f2f2', paddingTop: 50}}>
+      <View style = {{flex: 1, backgroundColor: '#FFFFFF', paddingTop: 50}}>
         <DeliveryIcon />
         <ScrollView>
           <RestaurantItems navigation = {navigation} items = {checkedoutItems} />

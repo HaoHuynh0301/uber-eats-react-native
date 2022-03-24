@@ -6,13 +6,13 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     height: 100,
     marginVertical: 20,
-    marginRight: 19
+    marginRight: 19,
   },
   itemInforWrapper: {
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'space-around',
-    width: '58%'
+    width: '58%',
   },
   itemTitle: {
     fontWeight: 'bold',

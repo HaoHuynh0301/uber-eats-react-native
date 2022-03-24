@@ -2,7 +2,6 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "./styles/restaurantItems.style";
 import { ITEMS } from "../home/RestaurantItem/item.constants";
-import CheckingComponent from "./CheckingComponent";
 
 export default function RestaurantItems({ items, navigation }) {
   const handleOpenOrderDetail = (item, totalCost, restaurantDescription) => {
