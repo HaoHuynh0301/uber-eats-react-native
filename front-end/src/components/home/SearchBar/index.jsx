@@ -20,6 +20,11 @@ export default function SearchBar(props) {
           <FontAwesome5 name = {'times'} size = {17}/>
         </TouchableOpacity>
       )}
+      <View style = {{width: 50, height: 50, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity onPress = {props.setFavoriteList}>
+          <FontAwesome5 name = {'heart'} size = {23}/>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

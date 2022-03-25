@@ -13,6 +13,7 @@ export default function HomePage({ navigation }) {
   const [category, setCategory] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [refreshing, setRefreshing] = useState(false);
+  const [favoriteList, setFavoriteList] = useState(false);
   const { favoriteItems } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
@@ -53,6 +54,20 @@ export default function HomePage({ navigation }) {
     } else setRestaurantItems(ITEMS);
   }, [category]);
 
+  useEffect(() => {
+    if (favoriteList)
+      setRestaurantItems([
+        ...restaurantItems.filter((_res) =>
+          favoriteItems.find((item) => item.restaurantName === _res.name)
+        ),
+      ]);
+  }, [favoriteList]);
+
+  const handleChooseFavoriteList = () => {
+    console.log('POK');
+    setFavoriteList(!favoriteList);
+  }
+
   const handleClearSearch = () => {
     setSearchValue("");
   };
@@ -65,12 +80,12 @@ export default function HomePage({ navigation }) {
 
   const handleUpdateFavRes = (_restaurantName) => {
     dispatch({
-      type: 'UPDATE_FAVORITE',
+      type: "UPDATE_FAVORITE",
       payload: {
-        restaurantName: _restaurantName
-      }
+        restaurantName: _restaurantName,
+      },
     });
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -79,6 +94,7 @@ export default function HomePage({ navigation }) {
           clearData={handleClearSearch}
           onChange={setSearchValue}
           value={searchValue}
+          setFavoriteList = {handleChooseFavoriteList}
         />
       </View>
       <ScrollView
@@ -93,7 +109,7 @@ export default function HomePage({ navigation }) {
           onSelected={handleCategorySelected}
         />
         <RestaurantItem
-          updateFavRestaurant = {handleUpdateFavRes}
+          updateFavRestaurant={handleUpdateFavRes}
           favoriteItems={favoriteItems}
           data={restaurantItems}
           navigation={navigation}

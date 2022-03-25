@@ -46,7 +46,6 @@ let userReducer = (state = defaultState, action) => {
       const found = newState.favoriteItems.find(item => item.restaurantName === _restaurantName);
       if(found) newState.favoriteItems = newState.favoriteItems.filter(item => item.restaurantName !== _restaurantName);
       else newState.favoriteItems = [...newState.favoriteItems, {restaurantName: _restaurantName}];
-      console.log(newState.favoriteItems);
       return newState;
     }
     default: 
