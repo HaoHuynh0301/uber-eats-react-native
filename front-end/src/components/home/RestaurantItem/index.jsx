@@ -1,9 +1,5 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import styles from "./style/resItem.style";
-import React, { useState } from "react";
-import CommunityMaterialIcons from "react-native-vector-icons/Ionicons";
-import { Divider } from "react-native-elements";
-import LottieView from "lottie-react-native";
+import { View } from "react-native";
+import React from "react";
 import RestaurantItemDetail from "./RestaurantItem";
 
 export default function RestaurantItem({ navigation, ...props }) {
@@ -17,7 +13,7 @@ export default function RestaurantItem({ navigation, ...props }) {
 
       return (
         <React.Fragment>
-          <RestaurantItemDetail isFavorite ={isFavorite} item={item} navigation={navigation} />
+          <RestaurantItemDetail updateFavRestaurant = {props.updateFavRestaurant} isFavorite ={isFavorite} item={item} navigation={navigation} />
         </React.Fragment>
       );
     });

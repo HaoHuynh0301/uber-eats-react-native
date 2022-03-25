@@ -42,8 +42,12 @@ let userReducer = (state = defaultState, action) => {
     }
     case 'UPDATE_FAVORITE': {
       let newState = {...state};
-      const {restaurantName} = action.payload;
-      let found = favoriteItems.find(item => item.restaurantName === restaurantName);
+      const _restaurantName = action.payload.restaurantName;
+      const found = newState.favoriteItems.find(item => item.restaurantName === _restaurantName);
+      if(found) newState.favoriteItems = newState.favoriteItems.filter(item => item.restaurantName !== _restaurantName);
+      else newState.favoriteItems = [...newState.favoriteItems, {restaurantName: _restaurantName}];
+      console.log(newState.favoriteItems);
+      return newState;
     }
     default: 
       return state;

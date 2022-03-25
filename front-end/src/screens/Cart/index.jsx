@@ -29,6 +29,7 @@ export default function Cart({ route, navigation }) {
       <Text style={styles.orderTitle}>
         {ORDER_TITLE(restaurantName, totalCost)}
       </Text>
+      
       <ScrollView onScroll={handleOnScroll} showVerticalScrollbar={false}>
         <OrderItems items={items} />
       </ScrollView>

@@ -63,6 +63,15 @@ export default function HomePage({ navigation }) {
     } else setCategory(insValue);
   };
 
+  const handleUpdateFavRes = (_restaurantName) => {
+    dispatch({
+      type: 'UPDATE_FAVORITE',
+      payload: {
+        restaurantName: _restaurantName
+      }
+    });
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -84,6 +93,7 @@ export default function HomePage({ navigation }) {
           onSelected={handleCategorySelected}
         />
         <RestaurantItem
+          updateFavRestaurant = {handleUpdateFavRes}
           favoriteItems={favoriteItems}
           data={restaurantItems}
           navigation={navigation}
