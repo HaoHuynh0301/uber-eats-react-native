@@ -4,7 +4,12 @@ const styles = StyleSheet.create({
   resItemWrapper: {
     flexDirection: "column",
     padding: 10,
-    marginTop: 20
+    marginTop: 20,
+    shadowOpacity: 0.15,
+    shadowOffset: {
+      width: 5,
+      height: 5
+    }
   },
   itemImg: {
     height: 180,

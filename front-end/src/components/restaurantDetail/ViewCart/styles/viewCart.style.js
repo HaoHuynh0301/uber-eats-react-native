@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: 30,
+    shadowOpacity: 0.2
   },
   containerCostValue: {
     position: 'absolute',
@@ -28,6 +29,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: 10,
+    shadowOpacity: 0.2, 
+    shadowOffset: {
+      width: 5,
+      height: 5
+    }
   },
   viewCartTxt: {
     color: 'white',

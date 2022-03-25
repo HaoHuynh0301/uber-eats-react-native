@@ -34,9 +34,14 @@ const styles = StyleSheet.create({
   },
   logoutBtn: {
     marginTop: 10,
-    borderRadius: 0,
+    borderRadius: 10,
     width: '95%',
     alignSelf: 'center',
+    shadowOpacity: 0.15,
+    shadowOffset: {
+      width: 5,
+      height: 7
+    }
   }
 });
 

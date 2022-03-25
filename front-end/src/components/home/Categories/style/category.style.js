@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
   cateText: {
     fontWeight: "bold",
   },
+  categoriesContainer: {
+    shadowOpacity: 0.1
+  }
 });
 
 export default styles;

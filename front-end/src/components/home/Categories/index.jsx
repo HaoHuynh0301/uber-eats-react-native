@@ -12,9 +12,14 @@ export default function Categories(props) {
           backgroundColor: item.label === selectedValue ? '#ffd4cc' : 'white',
           height: '95%',
           width: 90,
-          margin: 2,
+          margin: 5,
           borderRadius: 10, 
-          padding: 5
+          padding: 5,
+          shadowOpacity: 0.1,
+          shadowOffset: {
+            width: 2,
+            height: -5
+          }
         }} onPress={() => onSelected(selectedValue, item.label)}>
           <View style={styles.cateWrapper} key={index}>
             <Image source={item.image} style={styles.cateImage} />

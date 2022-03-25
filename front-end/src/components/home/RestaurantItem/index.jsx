@@ -2,23 +2,37 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./style/resItem.style";
 import React from "react";
 import CommunityMaterialIcons from "react-native-vector-icons/Ionicons";
-import {Divider} from 'react-native-elements';
+import { Divider } from "react-native-elements";
 
-const RestaurantItemInfor = (items, navigation) =>
+const RestaurantItemInfor = (items, favoriteItems, navigation) =>
   items.map((item, index) => {
-    return(
-      <React.Fragment key = {index}>
-        <TouchableOpacity activeOpacity={0.5} onPress={() => {navigation.navigate('About', {
-          item: item,
-          restaurantName: item.name
-        })}}>
+    const favoriteIcon = favoriteItems.find(
+      (_item) => _item.restaurantName === item.name
+    )
+      ? "red"
+      : "white";
+    return (
+      <React.Fragment key={index}>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          onPress={() => {
+            navigation.navigate("About", {
+              item: item,
+              restaurantName: item.name,
+            });
+          }}
+        >
           <View style={styles.resItemWrapper}>
             <Image source={item.image} style={styles.itemImg} />
             <CommunityMaterialIcons
-              name="heart-outline"
+              name={favoriteItems.find(
+                (_item) => _item.restaurantName === item.name
+              )
+                ? "heart"
+                : "heart-outline"}
               size={25}
               style={styles.heartIcon}
-              color="white"
+              color={favoriteIcon}
             />
             <View style={styles.resItemInforWrapper}>
               <View style={styles.basicInfWrapper}>
@@ -31,11 +45,15 @@ const RestaurantItemInfor = (items, navigation) =>
             </View>
           </View>
         </TouchableOpacity>
-        <Divider width = {1} />
+        <Divider width={1} />
       </React.Fragment>
     );
   });
 
-export default function RestaurantItem({navigation, ...props}) {
-  return <View>{RestaurantItemInfor(props.data, navigation)}</View>;
+export default function RestaurantItem({ navigation, ...props }) {
+  return (
+    <View>
+      {RestaurantItemInfor(props.data, props.favoriteItems, navigation)}
+    </View>
+  );
 }

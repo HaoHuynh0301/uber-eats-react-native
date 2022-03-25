@@ -22,7 +22,13 @@ let defaultState = {
     },
   ],
   sentSms: false,
-  smsPhonenumber: ''
+  smsPhonenumber: '',
+  favoriteItems: [
+    {
+      id: 1,
+      restaurantName: 'Vạn Phát Riverside'
+    }
+  ]
 }
 
 let userReducer = (state = defaultState, action) => {

@@ -109,6 +109,8 @@ export default function Login({navigation, route}) {
     onPress: () => handleSendSMS()
   }
 
+  const SUBTITLE = 'Welcome back!';
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -121,6 +123,7 @@ export default function Login({navigation, route}) {
           loginButton = {{
             label: 'Login'
           }}
+          subTitle = {SUBTITLE}
           handleLogin = {handleSubmit}
           subFooter = {SUBFOOTER}
           footer = {FOOTER}

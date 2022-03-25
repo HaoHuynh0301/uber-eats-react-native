@@ -12,18 +12,23 @@ const styles = StyleSheet.create({
     width: '80%',
     height: 70,
     flexDirection: 'row',
-    marginTop: 30,
+    marginTop: 20,
     alignSelf: 'center'
   },
   inputField: {
     marginLeft: 20,
   },
   loginBtn: {
-    borderRadius: 0,
+    borderRadius: 15,
     width: '80%',
-    height: 40,
+    height: 50,
     alignSelf: 'center',
     marginTop: 30,
+    shadowOpacity: 0.1, 
+    shadowOffset: {
+      height: 7,
+      width: 5
+    }
   },
   loginBtnLabel: {
     color: 'white',
@@ -45,15 +50,18 @@ const styles = StyleSheet.create({
   footerItemsContainer: {
     flexDirection: 'row',
     marginBottom: 15,
-    // justifyContent: 'space-around',
     width: 300,
     height: 40,
     borderWidth: 0.5,
     alignItems: 'center',
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    borderRadius: 5
   },
   footIconLabel: {
     marginLeft: 80
+  },
+  subTitleWrapper: {
+
   }
 });
 

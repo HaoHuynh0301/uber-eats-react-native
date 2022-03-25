@@ -1,4 +1,4 @@
-import { View, SafeAreaView, ScrollView } from "react-native";
+import { View, SafeAreaView, ScrollView, RefreshControl } from "react-native";
 import React, { useState, useEffect } from "react";
 import SearchBar from "../../components/home/SearchBar";
 import Categories from "../../components/home/Categories";
@@ -6,11 +6,24 @@ import RestaurantItem from "../../components/home/RestaurantItem";
 import { ITEMS } from "../../components/home/RestaurantItem/item.constants";
 import { CATEGORIES } from "../../components/home/Categories/categories.constants";
 import styles from "./style";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function HomePage({ navigation }) {
   const [restaurantItems, setRestaurantItems] = useState(ITEMS);
   const [category, setCategory] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
+  const { favoriteItems } = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+
+  const wait = (timeout) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+  };
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
 
   //Find restaurant's name whenever search value changed
   useEffect(() => {
@@ -36,7 +49,7 @@ export default function HomePage({ navigation }) {
           f = true;
         }
       });
-      if(!f) setRestaurantItems([]) 
+      if (!f) setRestaurantItems([]);
     } else setRestaurantItems(ITEMS);
   }, [category]);
 
@@ -45,10 +58,10 @@ export default function HomePage({ navigation }) {
   };
 
   const handleCategorySelected = (prevValue, insValue) => {
-    if(prevValue === insValue) {
-      setCategory('');
+    if (prevValue === insValue) {
+      setCategory("");
     } else setCategory(insValue);
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,13 +72,22 @@ export default function HomePage({ navigation }) {
           value={searchValue}
         />
       </View>
-      <ScrollView showVerticalScrollbar={false}>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        showVerticalScrollbar={false}
+      >
         <Categories
           selectedValue={category}
           data={CATEGORIES}
           onSelected={handleCategorySelected}
         />
-        <RestaurantItem data={restaurantItems} navigation={navigation} />
+        <RestaurantItem
+          favoriteItems={favoriteItems}
+          data={restaurantItems}
+          navigation={navigation}
+        />
       </ScrollView>
       {/* <Divider width={1} /> */}
     </SafeAreaView>
