@@ -64,7 +64,6 @@ export default function HomePage({ navigation }) {
   }, [favoriteList]);
 
   const handleChooseFavoriteList = () => {
-    console.log('POK');
     setFavoriteList(!favoriteList);
   }
 
@@ -115,7 +114,6 @@ export default function HomePage({ navigation }) {
           navigation={navigation}
         />
       </ScrollView>
-      {/* <Divider width={1} /> */}
     </SafeAreaView>
   );
 }

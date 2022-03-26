@@ -14,7 +14,12 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderWidth: 0.2, 
     borderColor: 'silver',
-    borderRadius: 20
+    borderRadius: 20,
+    shadowOpacity: 0.05,
+    shadowOffset: {
+      width: 5,
+      height: 5
+    }
   },
   itemImage: {
     height: "85%",

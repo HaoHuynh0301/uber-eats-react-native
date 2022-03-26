@@ -60,7 +60,7 @@ const ITEMS = [
       }
     ],
     categories: ['BAKERY']
-  }
+  },
 ];
 
 export { ITEMS };

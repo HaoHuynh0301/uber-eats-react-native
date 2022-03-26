@@ -2,7 +2,7 @@ import { View, SafeAreaView, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "./style/auth.style";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { Button, TextField, Colors } from "react-native-ui-lib";
+import { Button, Colors, TextField } from "react-native-ui-lib";
 import ConfirmSMS from './ConfirmSMS';
 
 export default function AuthForm(props) {
@@ -41,9 +41,7 @@ export default function AuthForm(props) {
           floatingPlaceholder
           floatingPlaceholderStyle={{ color: "black" }}
           containerStyle={{ marginLeft: 10, width: "90%", borderColor: "grey" }}
-          placeholderTextColor={{
-            default: Colors.red
-          }}
+          fieldStyle={'withUnderline'}
         />
       </View>
     ));

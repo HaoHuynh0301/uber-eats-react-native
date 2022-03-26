@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     height: 70,
     flexDirection: 'row',
     marginTop: 20,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   inputField: {
     marginLeft: 20,

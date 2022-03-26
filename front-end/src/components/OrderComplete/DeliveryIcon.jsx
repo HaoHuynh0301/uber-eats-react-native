@@ -9,7 +9,8 @@ export default function DeliveryIcon() {
         height: 200,
         width: 200,
         alignSelf: "center",
-        margin: 20,
+        marginBottom: 20,
+        marginTop: -20
       }}
     />
   );
