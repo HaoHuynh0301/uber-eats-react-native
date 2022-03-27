@@ -4,9 +4,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     marginLeft: 20,
-    height: 100,
-    marginVertical: 20,
-    marginRight: 19,
+    height: 120,
+    marginVertical: 10,
+    marginRight: 20,
   },
   itemInforWrapper: {
     flexDirection: 'column',

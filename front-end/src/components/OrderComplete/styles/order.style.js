@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+    width: '80%',
   },
   lottieViewContainer: {
     height: 120,
@@ -13,8 +14,9 @@ const styles = StyleSheet.create({
   },
   orderTitle: {
     fontWeight: "bold",
-    paddingHorizontal: 10,
-    fontSize: 16
+    // paddingHorizontal: 10,
+    fontSize: 16,
+    alignSelf: 'center'
   },
   cookingIcon: {
     height: 200,

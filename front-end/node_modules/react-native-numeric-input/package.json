@@ -1,0 +1,43 @@
+{
+  "name": "react-native-numeric-input",
+  "version": "1.9.1",
+  "description": "a stylish numeric input for react native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "mobile",
+    "ios",
+    "android",
+    "number-input",
+    "numeric-input",
+    "number",
+    "input",
+    "numeric"
+  ],
+  "author": {
+    "name": "omri himelbrand",
+    "email": "himelbrand@gmail.com"
+  },
+  "homepage": "https://github.com/himelbrand/react-native-numeric-input",
+  "bugs": {
+    "url": "https://github.com/himelbrand/react-native-numeric-input/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/himelbrand/react-native-numeric-input.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react-native-pixel-perfect": "^1.0.1"
+  },
+  "peerDependencies": {
+    "react-native-vector-icons": "^9.*"
+  }
+}

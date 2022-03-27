@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   },
   itemWrapper: {
     justifyContent: 'center',
+    // backgroundColor: 'green',
   },
   itemTitle: {
     fontWeight: 'bold',

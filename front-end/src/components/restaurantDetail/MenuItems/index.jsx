@@ -4,6 +4,7 @@ import styles from "./styles/menuItems.style";
 import { Divider } from "react-native-elements";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { useDispatch, useSelector } from "react-redux";
+import NumericInput from "react-native-numeric-input";
 
 export default function MenuItems({ route, setVisible }) {
   const { foodItem } = route.params.item;
@@ -24,13 +25,16 @@ export default function MenuItems({ route, setVisible }) {
   };
 
   const selectedItem = (item, checkboxValue) => {
-    if(selectedRestaurantName !== "" && restaurantName !== selectedRestaurantName) {
+    if (
+      selectedRestaurantName !== "" &&
+      restaurantName !== selectedRestaurantName
+    ) {
       dispatch({
         type: "SELECT_ITEM_ERR_MSG_REQUEST",
         payload: {},
       });
-    }
-    else {
+    } else {
+      Object.assign(item, {quantity: 1})
       dispatch({
         type: "ADD_TO_CART",
         payload: {
@@ -40,9 +44,9 @@ export default function MenuItems({ route, setVisible }) {
         },
       });
       return true;
-    };
-  }
-    
+    }
+  };
+
   return (
     <ScrollView showVerticalScrollbar={false}>
       {foodItem.map((item, key) => (
@@ -57,7 +61,10 @@ export default function MenuItems({ route, setVisible }) {
               fillColor="green"
               isChecked={isSelectedItem(item)}
               onPress={(checkboxValue) => selectedItem(item, checkboxValue)}
-              disableBuiltInState = {selectedRestaurantName !== "" && restaurantName !== selectedRestaurantName}
+              disableBuiltInState={
+                selectedRestaurantName !== "" &&
+                restaurantName !== selectedRestaurantName
+              }
             />
             <View style={styles.itemInforContainer}>
               <Text style={styles.itemTitle}>{item.title}</Text>

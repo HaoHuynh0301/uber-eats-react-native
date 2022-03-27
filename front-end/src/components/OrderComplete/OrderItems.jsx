@@ -10,16 +10,7 @@ const itemImage = (source) => (
 
 export default function OrderItems({ items }) {
   const itemsView = items.map((item, index) => (
-    <Drawer
-      leftItem={{
-        text: "Delete",
-        background: Colors.white,
-        width: 50,
-        onPress: () => console.log("delete pressed"),
-      }}
-      fullSwipeLeft={false}
-      key={index}
-    >
+    <React.Fragment key = {index}>
       <View style={styles.container}>
         <View style={styles.itemInforWrapper}>
           <Text style={styles.itemTitle}>{item.title}</Text>
@@ -29,7 +20,7 @@ export default function OrderItems({ items }) {
         {itemImage(item.image)}
       </View>
       <Divider width={1} />
-    </Drawer>
+    </React.Fragment>
   ));
 
   return <View>{itemsView}</View>;

@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginVertical: 15,
     justifyContent: "space-between",
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   itemImage: {
     height: 120,

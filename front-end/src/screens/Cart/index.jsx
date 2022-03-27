@@ -10,7 +10,6 @@ import FloatingButton from "../../components/FloatingButton";
 import ShoppingCartIcon from '../../components/Cart/ShoppingCartIcon';
 
 export default function Cart({ route, navigation }) {
-  const [scroll, setScroll] = useState(false);
   const dispatch = useDispatch();
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
@@ -20,17 +19,13 @@ export default function Cart({ route, navigation }) {
     0
   );
 
-  const handleOnScroll = (e) => {
-    console.log(e.nativeEvent.contentOffset);
-  };
-
   const cartItems = () => (
     <>
       <Text style={styles.orderTitle}>
         {ORDER_TITLE(restaurantName, totalCost)}
       </Text>
       
-      <ScrollView onScroll={handleOnScroll} showVerticalScrollbar={false}>
+      <ScrollView showVerticalScrollbar={false}>
         <OrderItems items={items} />
       </ScrollView>
       <FloatingButton onPress = {() => {

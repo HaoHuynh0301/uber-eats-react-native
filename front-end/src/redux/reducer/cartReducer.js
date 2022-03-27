@@ -22,15 +22,27 @@ let cartReducer = (state = defaultState, action) => {
           restaurantName: action.payload.restaurantName,
         };
       }
-      if(newState.selectedItems.items.length === 0) {
-        newState.selectedItems.restaurantName = '';
+      if (newState.selectedItems.items.length === 0) {
+        newState.selectedItems.restaurantName = "";
       }
       return newState;
     }
-    case "CHECKED_OUT_REQUEST":
+    case "CHECKED_OUT_REQUEST": {
       let newState = { ...state };
       newState.checkedoutItems = [...newState.checkedoutItems, action.payload];
-      newState.selectedItems = {items: [], restaurantName: ""}
+      newState.selectedItems = { items: [], restaurantName: "" };
+      return newState;
+    }
+    case "UPDATE_SELECTED_ITEM":
+      console.log('REDUCER');
+      let newState = { ...newState };
+      let updateItem = action.payload.item;
+      let newArray = state.selectedItems.items.map((element) =>
+        element.restaurantName === updateItem.restaurantName
+          ? { ...element, quantity: updateItem.quantity }
+          : element
+      );
+      newState.selectedItems = [...newArray];
       return newState;
     default:
       return state;
