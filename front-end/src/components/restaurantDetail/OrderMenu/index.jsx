@@ -16,7 +16,6 @@ export default function OrderMenu({ title, items, totalCost, handleCheckout, onC
           <NumericInput
             value={item.quantity}
             minValue={0}
-            // defaultValue={1}
             totalHeight={25}
             totalWidth={80}
             onChange={(value) => {

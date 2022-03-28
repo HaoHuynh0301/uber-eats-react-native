@@ -33,17 +33,17 @@ let cartReducer = (state = defaultState, action) => {
       newState.selectedItems = { items: [], restaurantName: "" };
       return newState;
     }
-    case "UPDATE_SELECTED_ITEM":
-      console.log('REDUCER');
-      let newState = { ...newState };
-      let updateItem = action.payload.item;
+    case "UPDATE_SELECTED_ITEM": {
+      let newState = { ...state };
+      let updateItem = action.payload.item;    
       let newArray = state.selectedItems.items.map((element) =>
-        element.restaurantName === updateItem.restaurantName
+        element.title === updateItem.title
           ? { ...element, quantity: updateItem.quantity }
           : element
       );
-      newState.selectedItems = [...newArray];
+      newState.selectedItems.items = [...newArray];
       return newState;
+    }
     default:
       return state;
   }

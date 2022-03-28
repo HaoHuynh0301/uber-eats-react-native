@@ -20,7 +20,7 @@ export default function ViewCart({ route, navigation }) {
 
   //Count total cost of selected items
   const totalCost = selectedItems.reduce(
-    (cost, item, index, selectedItems) => (cost += item.price * item.quantity),
+    (cost, item, index, selectedItems) => (cost += item.price),
     0
   );
 
@@ -37,7 +37,6 @@ export default function ViewCart({ route, navigation }) {
   };
 
   const onChangeQuantity = (item) => {
-    console.log(item);
     dispatch({
       type: "UPDATE_SELECTED_ITEM",
       payload: {
