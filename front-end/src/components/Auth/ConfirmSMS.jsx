@@ -1,11 +1,11 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, {memo} from "react";
 import styles from "./style/confirmSms.style";
 import { TextField, Button } from "react-native-ui-lib";
 
 const CONFIRM_CODE = [1, 2, 3, 4, 5];
 
-export default function ConfirmSMS({ phonenumber }) {
+export default memo(function ConfirmSMS({ phonenumber }) {
   const confirmCode = () =>
     CONFIRM_CODE.map((item, index) => (
       <TextField
@@ -13,7 +13,7 @@ export default function ConfirmSMS({ phonenumber }) {
         labelStyle={{
           fontSize: 30
         }}
-        containerStyle={{ marginLeft: 10, width: 50, borderColor: "black", height: 50 }}
+        containerStyle={styles.textFieldContainer}
       />
     ));
 
@@ -25,4 +25,4 @@ export default function ConfirmSMS({ phonenumber }) {
       <Button backgroundColor = 'black' label = 'Continue' style = {styles.continueBtn}/>
     </View>
   );
-}
+});

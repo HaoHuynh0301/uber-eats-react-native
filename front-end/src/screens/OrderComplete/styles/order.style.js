@@ -9,17 +9,24 @@ const styles = StyleSheet.create({
     height: 120,
     alignSelf: "center",
     marginBottom: 50,
-    marginTop: 10
+    marginTop: 10,
   },
   orderTitle: {
     fontWeight: "bold",
     paddingHorizontal: 10,
-    fontSize: 16
+    fontSize: 16,
   },
   cookingIcon: {
     height: 200,
-    alignSelf: 'center'
-  }
+    alignSelf: "center",
+  },
+  subtitleLabel: {
+    alignSelf: "center",
+    fontSize: 18,
+    marginTop: -35,
+    marginBottom: 20,
+    fontWeight: "bold",
+  },
 });
 
 export default styles;

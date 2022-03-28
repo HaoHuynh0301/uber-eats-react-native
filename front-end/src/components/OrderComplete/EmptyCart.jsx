@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, {memo} from "react";
 import styles from "./styles/emptyOrder.style";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-export default function EmptyCart({labels}) {
+export default memo(function EmptyCart({labels}) {
   const content = () =>
   labels.map((label, index) => (
     <Text key = {index} style={label.type === "sub-title" ? styles.subTitle : styles.content}>
@@ -19,4 +19,4 @@ export default function EmptyCart({labels}) {
       </View>
     </View>
   );
-}
+});

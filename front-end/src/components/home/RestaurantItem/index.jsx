@@ -1,8 +1,8 @@
 import { View } from "react-native";
-import React from "react";
+import React, {memo}  from "react";
 import RestaurantItemDetail from "./RestaurantItem";
 
-export default function RestaurantItem({ navigation, ...props }) {
+export default memo(function RestaurantItem({ navigation, ...props }) {
   const RestaurantItemInfor = (items, favoriteItems, navigation) =>
     items.map((item, index) => {
       const isFavorite = favoriteItems.find(
@@ -22,4 +22,4 @@ export default function RestaurantItem({ navigation, ...props }) {
       {RestaurantItemInfor(props.data, props.favoriteItems, navigation)}
     </View>
   );
-}
+});

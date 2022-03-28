@@ -1,28 +1,19 @@
 import { Text, TouchableOpacity, Modal, View } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles/viewCart.style";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import OrderMenu from "../OrderMenu";
-import NumericInput from "react-native-numeric-input";
 
-export default function ViewCart({ route, navigation }) {
+export default function ViewCart({
+  route,
+  navigation,
+  onChangeQuantity,
+  selectedItems,
+  restaurantName,
+  totalCost,
+}) {
   const [displayedModal, setDisplayedModal] = useState(false);
   const dispatch = useDispatch();
-
-  //Get seleted items stored with redux
-  const selectedItems = useSelector(
-    (state) => state.cartReducer.selectedItems.items
-  );
-
-  const restaurantName = useSelector(
-    (state) => state.cartReducer.selectedItems.restaurantName
-  );
-
-  //Count total cost of selected items
-  const totalCost = selectedItems.reduce(
-    (cost, item, index, selectedItems) => (cost += item.price * item.quantity),
-    0
-  );
 
   const handleCheckout = () => {
     setDisplayedModal(false);
@@ -34,15 +25,6 @@ export default function ViewCart({ route, navigation }) {
       },
     });
     navigation.navigate("Orders", {});
-  };
-
-  const onChangeQuantity = (item) => {
-    dispatch({
-      type: "UPDATE_SELECTED_ITEM",
-      payload: {
-        item: item,
-      },
-    });
   };
 
   const modalView = () => (

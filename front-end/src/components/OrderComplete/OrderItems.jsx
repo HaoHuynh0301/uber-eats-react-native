@@ -1,14 +1,13 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
+import React, {memo} from "react";
 import styles from "./styles/items.style";
 import { Divider } from "react-native-elements";
-import { Drawer, Colors } from "react-native-ui-lib";
 
 const itemImage = (source) => (
   <Image source={source} style={styles.itemImage} />
 );
 
-export default function OrderItems({ items }) {
+export default memo(function OrderItems({ items }) {
   const itemsView = items.map((item, index) => (
     <React.Fragment key = {index}>
       <View style={styles.container}>
@@ -24,4 +23,4 @@ export default function OrderItems({ items }) {
   ));
 
   return <View>{itemsView}</View>;
-}
+});

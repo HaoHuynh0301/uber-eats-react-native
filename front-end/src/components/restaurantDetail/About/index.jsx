@@ -1,5 +1,5 @@
 import { View, Text, Image } from "react-native";
-import React, { useState } from "react";
+import React, {memo} from "react";
 import styles from "./styles/about.style";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
@@ -25,9 +25,8 @@ const RestaurantRating = (props) => (
   </Text>
 );
 
-export default function About({ data, route }) {
+export default memo(function About({ route }) {
   const { item } = route.params;
-  const [restaurant, setRestaurant] = useState(item);
 
   return (
     <View style={styles.container}>
@@ -42,4 +41,4 @@ export default function About({ data, route }) {
       </View>
     </View>
   );
-}
+});

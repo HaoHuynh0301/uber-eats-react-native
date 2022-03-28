@@ -1,10 +1,9 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { View, Text } from "react-native";
+import React, {memo} from "react";
 import styles from "./style/personalInfor.style";
 import { Avatar, Button } from "react-native-ui-lib"; //eslint-disable-line
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-export default function PersonalInfor({ user, handleLogout }) {
+export default memo(function PersonalInfor({ user, handleLogout }) {
   
   const LogoutButton = () => (
     <Button
@@ -48,4 +47,4 @@ export default function PersonalInfor({ user, handleLogout }) {
       {LogoutButton()}
     </View>
   );
-}
+});

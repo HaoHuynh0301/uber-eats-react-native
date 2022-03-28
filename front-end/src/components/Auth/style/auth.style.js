@@ -1,68 +1,66 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%'
+    width: "100%",
   },
   logoContainer: {
-    width: '100%', 
-    marginBottom: 30
+    width: "100%",
+    marginBottom: 30,
   },
   inputContainer: {
-    width: '80%',
+    width: "80%",
     height: 70,
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 20,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   inputField: {
     marginLeft: 20,
   },
   loginBtn: {
     borderRadius: 15,
-    width: '80%',
+    width: "80%",
     height: 50,
-    alignSelf: 'center',
+    alignSelf: "center",
     marginTop: 30,
-    shadowOpacity: 0.1, 
+    shadowOpacity: 0.1,
     shadowOffset: {
       height: 7,
-      width: 5
-    }
+      width: 5,
+    },
   },
   loginBtnLabel: {
-    color: 'white',
+    color: "white",
   },
   subFooterContainer: {
-    flexDirection: 'row',
-    width: '100%', 
-    justifyContent: 'space-around',
-    marginTop: 20
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-around",
+    marginTop: 20,
   },
   linkLabel: {
-    color: 'blue'
+    color: "blue",
   },
   footerContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: 40
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: 40,
   },
   footerItemsContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 15,
     width: 300,
     height: 40,
     borderWidth: 0.5,
-    alignItems: 'center',
+    alignItems: "center",
     paddingHorizontal: 20,
-    borderRadius: 5
+    borderRadius: 5,
   },
   footIconLabel: {
-    marginLeft: 80
+    marginLeft: 80,
   },
-  subTitleWrapper: {
-
-  }
+  textFieldContainer: { marginLeft: 10, width: "90%", borderColor: "grey" },
 });
 
 export default styles;

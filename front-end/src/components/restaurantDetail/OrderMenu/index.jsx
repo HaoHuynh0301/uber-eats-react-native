@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import React, {memo} from "react";
 import styles from "./styles/orderMenu.style";
 import { Divider } from "react-native-elements";
 import NumericInput from "react-native-numeric-input";
 
-export default function OrderMenu({ title, items, totalCost, handleCheckout, onChangeQuantity }) {
+export default memo(function OrderMenu({ title, items, totalCost, handleCheckout, onChangeQuantity }) {
   const listItems = () =>
     items.map((item, index) => (
       <View key={index} style={styles.itemWrapper}>
@@ -12,7 +12,7 @@ export default function OrderMenu({ title, items, totalCost, handleCheckout, onC
           <Text style={styles.itemTitle}>{item.title}</Text>
           <Text>{item.price} VNĐ</Text>
         </View>
-        <View style={{ marginLeft: 30, marginTop: -20, marginBottom: 20 }}>
+        <View style={styles.numericContainer}>
           <NumericInput
             value={item.quantity}
             minValue={0}
@@ -45,4 +45,4 @@ export default function OrderMenu({ title, items, totalCost, handleCheckout, onC
       </TouchableOpacity>
     </View>
   );
-}
+});

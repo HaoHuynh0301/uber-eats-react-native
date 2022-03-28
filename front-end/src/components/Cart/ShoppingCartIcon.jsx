@@ -1,7 +1,7 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
+import React, {memo} from "react";
 
-export default function ShoppingCartIcon() {
+export default memo(function ShoppingCartIcon() {
   return (
     <Image 
       source = {require('../../assets/animation/shopping-cart-icon.gif')}
@@ -13,4 +13,4 @@ export default function ShoppingCartIcon() {
       }}
     />
   );
-}
+});

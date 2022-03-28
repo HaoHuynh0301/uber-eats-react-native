@@ -1,8 +1,8 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
-import React from "react";
+import React, {memo}  from "react";
 import styles from "./style/category.style";
 
-export default function Categories(props) {
+export default memo(function Categories(props) {
   const {data, selectedValue, onSelected} = props;
 
   const categoriesList = () =>
@@ -34,4 +34,4 @@ export default function Categories(props) {
       <View style={styles.container}>{categoriesList()}</View>
     </ScrollView>
   );
-}
+});

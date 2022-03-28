@@ -1,11 +1,11 @@
 import { View, SafeAreaView, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import React, {memo} from "react";
 import styles from "./style/auth.style";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { Button, Colors, TextField } from "react-native-ui-lib";
+import { Button, TextField } from "react-native-ui-lib";
 import ConfirmSMS from './ConfirmSMS';
 
-export default function AuthForm(props) {
+export default memo(function AuthForm(props) {
   const {
     logo,
     textInputs,
@@ -40,7 +40,7 @@ export default function AuthForm(props) {
           placeholder={input.placeholder}
           floatingPlaceholder
           floatingPlaceholderStyle={{ color: "black" }}
-          containerStyle={{ marginLeft: 10, width: "90%", borderColor: "grey" }}
+          containerStyle={styles.textFieldContainer}
           fieldStyle={'withUnderline'}
         />
       </View>
@@ -107,4 +107,4 @@ export default function AuthForm(props) {
       )}
     </SafeAreaView>
   );
-}
+});
