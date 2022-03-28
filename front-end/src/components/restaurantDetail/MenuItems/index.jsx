@@ -75,7 +75,7 @@ export default function MenuItems({ route, setVisible }) {
               >
                 {item.description}
               </Text>
-              <Text style={styles.itemPrice}>{item.price} VNĐ</Text>
+              <Text style={styles.itemPrice}>{item.price * item.quantity} VNĐ</Text>
             </View>
             <Image
               style={styles.itemImage}

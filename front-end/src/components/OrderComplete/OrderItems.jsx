@@ -9,13 +9,14 @@ const itemImage = (source) => (
 );
 
 export default function OrderItems({ items }) {
+  console.log(items)
   const itemsView = items.map((item, index) => (
     <React.Fragment key = {index}>
       <View style={styles.container}>
         <View style={styles.itemInforWrapper}>
           <Text style={styles.itemTitle}>{item.title}</Text>
           <Text style={styles.itemDescription}>{item.description}</Text>
-          <Text style={styles.itemDescription}>{item.price} VNĐ</Text>
+          <Text style={styles.itemDescription}>{item.price * item.quantity} VNĐ</Text>
         </View>
         {itemImage(item.image)}
       </View>

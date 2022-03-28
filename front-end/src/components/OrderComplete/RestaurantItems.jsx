@@ -14,7 +14,7 @@ export default function RestaurantItems({ items, navigation }) {
   const renderItem = () =>
     items.map((item, index) => {
       const totalCost = item.items.reduce(
-        (cost, item, index, items) => (cost += item.price),
+        (cost, item, index, items) => (cost += item.price * item.quantity),
         0
       );
       let restaurantDescription = ITEMS.find(

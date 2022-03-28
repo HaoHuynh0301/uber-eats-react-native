@@ -17,7 +17,7 @@ export default function OrderItems({items}) {
         <View style = {styles.itemInforWrapper}> 
           <Text style = {styles.itemTitle}>{item.title}</Text>
           <Text style = {styles.itemDescription}>{item.description}</Text>
-          <Text style = {styles.itemDescription}>{item.price} VNĐ</Text>
+          <Text style = {styles.itemDescription}>{item.price * item.quantity} VNĐ</Text>
         </View>
         {itemImage(item.image)}
       </View>

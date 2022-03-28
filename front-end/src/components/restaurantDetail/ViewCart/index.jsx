@@ -20,7 +20,7 @@ export default function ViewCart({ route, navigation }) {
 
   //Count total cost of selected items
   const totalCost = selectedItems.reduce(
-    (cost, item, index, selectedItems) => (cost += item.price),
+    (cost, item, index, selectedItems) => (cost += item.price * item.quantity),
     0
   );
 

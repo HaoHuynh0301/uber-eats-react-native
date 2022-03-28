@@ -15,7 +15,7 @@ export default function Cart({ route, navigation }) {
     (state) => state.cartReducer.selectedItems
   );
   const totalCost = items.reduce(
-    (cost, item, index, items) => (cost += item.price),
+    (cost, item, index, items) => (cost += item.price * item.quantity),
     0
   );
 
