@@ -31,7 +31,6 @@ let cartReducer = (state = defaultState, action) => {
       let newState = { ...state };
       newState.checkedoutItems = [...newState.checkedoutItems, action.payload];
       newState.selectedItems = { items: [], restaurantName: "" };
-      console.log(newState);
       return newState;
     }
     case "UPDATE_SELECTED_ITEM": {

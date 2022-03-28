@@ -4,7 +4,7 @@ import styles from "./style/personalInfor.style";
 import { Avatar, Button } from "react-native-ui-lib"; //eslint-disable-line
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-export default function PersonalInfor({ user, handleClick, handleLogout }) {
+export default function PersonalInfor({ user, handleLogout }) {
   
   const LogoutButton = () => (
     <Button
@@ -36,14 +36,9 @@ export default function PersonalInfor({ user, handleClick, handleLogout }) {
   );
 
   const linkEditInformation = (text) => (
-    <TouchableOpacity style={styles.linklinkContainer} onPress={handleClick}>
+    <View style={styles.linklinkContainer} >
       <Text style={{ marginRight: 10 }}>{text}</Text>
-      <FontAwesome5
-        name={"angle-right"}
-        size={25}
-        style={{ alignSelf: "center" }}
-      />
-    </TouchableOpacity>
+    </View>
   );
 
   return (

@@ -4,7 +4,6 @@ import OrderComplete from "../screens/OrderComplete";
 import Profile from "../screens/Profile";
 import Cart from "../screens/Cart";
 import Login from '../screens/Auth/Login';
-import EditInformation from '../screens/EditInformation';
 import OrderDetail from '../screens/OrderDetail';
 import Register from "../screens/Auth/Register";
 
@@ -31,10 +30,6 @@ export const AUTH_STACK_SCREENS = [
   {
     name: "About",
     component: RestaurantDetail
-  },
-  {
-    name: 'EditInformation',
-    component: EditInformation
   },
   {
     name: 'OrderDetail',

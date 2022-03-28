@@ -1,15 +1,17 @@
 import { View } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Profile/Header";
 import PersonalInfor from "../../components/Profile/PersonalInfor";
 import { useDispatch, useSelector } from "react-redux";
+import EditDialog from "../../components/Profile/Dialog";
 
 export default function Profile({ navigation, route }) {
+  const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.userInfor);
 
   const handleOpenEditScreen = () => {
-    navigation.navigate("EditInformation", {});
+    setModalVisible(true);
   };
 
   const handleLogout = () => {
@@ -24,9 +26,10 @@ export default function Profile({ navigation, route }) {
       <Header />
       <PersonalInfor
         handleLogout={handleLogout}
-        handleClick={handleOpenEditScreen}
+        // handleClick={setModalVisible(true)}
         user={user}
       />
+      <EditDialog visible = {modalVisible} onDismiss = {() => setModalVisible(false)}/>
     </View>
   );
 }

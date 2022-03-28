@@ -9,7 +9,6 @@ const itemImage = (source) => (
 );
 
 export default function OrderItems({ items }) {
-  console.log(items)
   const itemsView = items.map((item, index) => (
     <React.Fragment key = {index}>
       <View style={styles.container}>
