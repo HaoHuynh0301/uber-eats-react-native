@@ -4,17 +4,16 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AuthForm from '../../components/Auth/AuthForm';
+import {FOOTER, SUBTITLE} from './auth.constants';
+import styles from './style/login.style';
 
-export default function Login({navigation, route}) {
+export default function Login({navigation}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [smsLogin, setSmsLogin] = useState(false);
   const [setPhonenumber, setSetPhonenumber] = useState('');
-  const [propsCheck, setPropsCheck] = useState(false);
-  const dispatch = useDispatch();
-
   const smsSent = useSelector(state => state.userReducer.sentSms);
-  const sentPhonenumer = useSelector(state => state.userReducer.sentPhonenumer)
+  const dispatch = useDispatch();
 
   const handleRegister = () => {
     navigation.navigate('Register', {});
@@ -89,31 +88,14 @@ export default function Login({navigation, route}) {
     }
   ]
 
-  const FOOTER = [
-    {
-      icon: 'google',
-      label: 'Continue with Google'
-    },
-    {
-      icon: 'facebook',
-      label: 'Continue with Facebook'
-    },
-    {
-      icon: 'github',
-      label: 'Continue with Github'
-    }
-  ]
-
   const SEND_SMS_BUTTON = {
     label: 'Send SMS',
     onPress: () => handleSendSMS()
   }
 
-  const SUBTITLE = 'Welcome back!';
-
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+      style={styles.keyboardAvoidContainer}
       behavior = "padding"
     >
       {!smsLogin ? (

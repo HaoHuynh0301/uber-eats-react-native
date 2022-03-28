@@ -8,8 +8,6 @@ import RestaurantItems from "../../components/OrderComplete/RestaurantItems";
 import DeliveryIcon from "../../components/OrderComplete/DeliveryIcon";
 
 export default function OrderComplete({ navigation }) {
-  const dispatch = useDispatch();
-
   const checkedoutItems = useSelector(
     (state) => state.cartReducer.checkedoutItems
   );
@@ -23,7 +21,7 @@ export default function OrderComplete({ navigation }) {
       ) : (
         <View style={{ flex: 1, backgroundColor: "#FFFFFF", paddingTop: 50 }}>
           <DeliveryIcon />
-          <Text style = {{alignSelf: "center", fontSize: 18, marginTop: -35, marginBottom: 20, fontWeight: "bold"}}>Your orders are on delivering</Text>
+          <Text style = {styles.subtitleLabel}>Your orders are on delivering</Text>
           <ScrollView>
             <RestaurantItems navigation={navigation} items={checkedoutItems} />
           </ScrollView>

@@ -1,5 +1,5 @@
-import { Text, SafeAreaView, ScrollView, View } from "react-native";
-import React, { useState } from "react";
+import { Text, SafeAreaView, ScrollView } from "react-native";
+import React from "react";
 import { ORDER_TITLE } from "../OrderComplete/constants/order.constants";
 import styles from "../OrderComplete/styles/order.style";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import { EMPTY_CART_LABELS } from "./constants/cart.constants";
 import FloatingButton from "../../components/FloatingButton";
 import ShoppingCartIcon from '../../components/Cart/ShoppingCartIcon';
 
-export default function Cart({ route, navigation }) {
+export default function Cart() {
   const dispatch = useDispatch();
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems

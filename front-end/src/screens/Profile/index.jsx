@@ -26,7 +26,6 @@ export default function Profile({ navigation, route }) {
       <Header />
       <PersonalInfor
         handleLogout={handleLogout}
-        // handleClick={setModalVisible(true)}
         user={user}
       />
       <EditDialog visible = {modalVisible} onDismiss = {() => setModalVisible(false)}/>
