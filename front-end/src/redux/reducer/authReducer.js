@@ -1,6 +1,8 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const defaultState = {
   loggedIn: false,
-  
+  loading: true
 };
 
 let authReducer = (state = defaultState, action) => {
