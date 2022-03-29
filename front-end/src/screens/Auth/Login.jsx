@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AuthForm from "../../components/Auth/AuthForm";
 import { FOOTER, SUBTITLE } from "./auth.constants";
+import {login, loginRequest} from '../../redux/reducer/authReducer';
 
 export default function Login({ navigation }) {
   const [username, setUsername] = useState("");
@@ -17,22 +18,11 @@ export default function Login({ navigation }) {
   };
 
   const handleSubmit = () => {
-    dispatch({
-      type: "LOGIN_REQUEST",
-      payload: {
-        username: "username",
-        password: "password",
-      },
-    });
+    dispatch(loginRequest({}));
   };
 
   const handleSendSMS = () => {
-    dispatch({
-      type: "SMS_SEND",
-      payload: {
-        phonenumer: setPhonenumber,
-      },
-    });
+
   };
 
   const SMS_INPUT = [
