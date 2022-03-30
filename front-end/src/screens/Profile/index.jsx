@@ -10,11 +10,7 @@ export default function Profile({ navigation, route }) {
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.userInfor);
-
-  const handleOpenEditScreen = () => {
-    setModalVisible(true);
-  };
-
+  
   const handleLogout = () => {
     dispatch(logout());
   };

@@ -2,8 +2,7 @@ import { View, Text } from "react-native";
 import React, {memo} from "react";
 import styles from "./style/confirmSms.style";
 import { TextField, Button } from "react-native-ui-lib";
-
-const CONFIRM_CODE = [1, 2, 3, 4, 5];
+import {CONFIRM_CODE} from './constants/confirm.code';
 
 export default memo(function ConfirmSMS({ phonenumber }) {
   const confirmCode = () =>

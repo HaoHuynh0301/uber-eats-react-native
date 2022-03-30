@@ -1,4 +1,4 @@
-import { View, TextInput, TouchableOpacity, Text } from "react-native";
+import { View, TextInput, TouchableOpacity } from "react-native";
 import styles from "./style/searchBar.style";
 import React, { memo } from "react";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";

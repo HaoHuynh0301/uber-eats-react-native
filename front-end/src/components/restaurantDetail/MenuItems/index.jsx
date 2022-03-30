@@ -1,9 +1,8 @@
 import { View, Text, Image, ScrollView } from "react-native";
-import React, {memo} from "react";
+import React, { memo } from "react";
 import styles from "./styles/menuItems.style";
 import { Divider } from "react-native-elements";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { useDispatch, useSelector } from "react-redux";
 
 export default memo(function MenuItems({
   route,

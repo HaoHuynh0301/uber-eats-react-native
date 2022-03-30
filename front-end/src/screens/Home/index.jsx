@@ -107,7 +107,7 @@ export default function HomePage({ navigation }) {
           data={CATEGORIES}
           onSelected={handleCategorySelected}
         />
-        <RestaurantItem
+        <RestaurantItem 
           updateFavRestaurant={handleUpdateFavRes}
           favoriteItems={favoriteItems}
           data={restaurantItems}

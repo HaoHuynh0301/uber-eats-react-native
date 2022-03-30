@@ -16,7 +16,6 @@ export default memo(function AuthForm(props) {
     sendSmsButton,
     sentSms,
     validInfor,
-    subTitle
   } = props;
 
   const inputFields = (textInputs) =>

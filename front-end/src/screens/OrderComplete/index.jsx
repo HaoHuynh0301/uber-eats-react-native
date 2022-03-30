@@ -1,6 +1,6 @@
 import { SafeAreaView, ScrollView, View, Text } from "react-native";
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import styles from "./styles/order.style";
 import EmptyCart from "../../components/OrderComplete/EmptyCart";
 import { EMPTY_ORDER_LABEL } from "../../components/OrderComplete/constants/emptyOrder.constants";

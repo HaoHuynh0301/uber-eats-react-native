@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./style/resItem.style";
-import React, {memo} from "react";
+import React from "react";
 import CommunityMaterialIcons from "react-native-vector-icons/Ionicons";
 import { Divider } from "react-native-elements";
 

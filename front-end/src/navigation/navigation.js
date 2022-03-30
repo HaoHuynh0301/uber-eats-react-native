@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { TAB_OPTIONS } from "./screen.option";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
