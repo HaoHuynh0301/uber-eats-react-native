@@ -36,18 +36,14 @@ const ScreenStackNavigator = () => (
 );
 
 export default function RootNavigation() {
-  const {login, currUser} = useSelector((state) => state.authReducer);
-  const [loadingState, setLoadingState] = useState(true);
+  const {login, loading} = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   
   useEffect(() => {
     dispatch(getAccessToken());
-    setTimeout(() => {
-      setLoadingState(false);
-    }, 3000);
   }, []);
 
-  if (loadingState)
+  if (loading)
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Image
