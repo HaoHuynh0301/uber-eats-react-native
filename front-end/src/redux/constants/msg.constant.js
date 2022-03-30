@@ -1,10 +1,10 @@
 export const ERR_MSG = [
   {
-    type: 'SELECT_ITEM_ERR_MSG_REQUEST',
+    type: 'noti/displayMsgRequest',
     content: 'Please checkout before selecting another restaurant!'
   },
   {
-    type: 'REGISTER_SUCCEED_MSG',
+    type: 'noti/hideMsgRequest',
     content: 'Register Successfully!'
   }
 ]

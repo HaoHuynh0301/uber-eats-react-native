@@ -6,7 +6,7 @@ import { TabNavigatorContainer, StackScreens } from "./Navigators";
 import { LOGIN_STACK_SCREENS } from "./stackNavigation.constants";
 import { useDispatch, useSelector } from "react-redux";
 import { Image, View } from "react-native";
-import { getAccessToken, loginRequest } from "../redux/reducer/authReducer";
+import { getAccessToken } from "../redux/reducer/authReducer";
 
 const ScreenNavigator = createNativeStackNavigator();
 const LoginNavigator = createNativeStackNavigator();
@@ -36,7 +36,7 @@ const ScreenStackNavigator = () => (
 );
 
 export default function RootNavigation() {
-  const loggedIn = useSelector((state) => state.authReducer.login);
+  const {login, currUser} = useSelector((state) => state.authReducer);
   const [loadingState, setLoadingState] = useState(true);
   const dispatch = useDispatch();
   
@@ -58,7 +58,7 @@ export default function RootNavigation() {
     );
   return (
     <NavigationContainer>
-      {loggedIn ? ScreenStackNavigator() : LoginStackNavigator()}
+      {login ? ScreenStackNavigator() : LoginStackNavigator()}
     </NavigationContainer>
   );
 }

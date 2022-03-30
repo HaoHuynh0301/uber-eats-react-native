@@ -1,9 +1,10 @@
 import { View } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "../../components/Profile/Header";
 import PersonalInfor from "../../components/Profile/PersonalInfor";
 import { useDispatch, useSelector } from "react-redux";
 import EditDialog from "../../components/Profile/Dialog";
+import {logout} from '../../redux/reducer/authReducer';
 
 export default function Profile({ navigation, route }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -15,10 +16,7 @@ export default function Profile({ navigation, route }) {
   };
 
   const handleLogout = () => {
-    dispatch({
-      type: "LOGOUT_REQUEST",
-      payload: {},
-    });
+    dispatch(logout());
   };
 
   return (

@@ -8,6 +8,7 @@ import { Divider } from "react-native-elements";
 import { Incubator } from "react-native-ui-lib";
 import { useSelector, useDispatch } from "react-redux";
 const { Toast } = Incubator;
+import {displayMsgRequest, hideMsgRequest} from '../../redux/reducer/notiReducer';
 
 export default function RestaurantDetail({ route, navigation }) {
   const { hideTime, visible, msg } = useSelector((state) => state.notiReducer);
@@ -21,12 +22,7 @@ export default function RestaurantDetail({ route, navigation }) {
     (state) => state.cartReducer.selectedItems.restaurantName
   );
 
-  const setVisibleMsg = () => {
-    dispatch({
-      type: "SELECT_ITEM_ERR_MSG_REQUEST",
-      payload: {},
-    });
-  };
+  const setVisibleMsg = () => {dispatch(displayMsgRequest({}))};
 
   const handleSelectedItem = (
     item,
@@ -37,12 +33,7 @@ export default function RestaurantDetail({ route, navigation }) {
     if (
       selectedRestaurantName !== "" &&
       restaurantName !== selectedRestaurantName
-    ) {
-      dispatch({
-        type: "SELECT_ITEM_ERR_MSG_REQUEST",
-        payload: {},
-      });
-    } else {
+    ) {dispatch(displayMsgRequest({}))} else {
       Object.assign(item, { quantity: 1 });
       dispatch({
         type: "ADD_TO_CART",
@@ -95,10 +86,7 @@ export default function RestaurantDetail({ route, navigation }) {
         message={msg}
         autoDismiss={hideTime}
         onDismiss={() =>
-          dispatch({
-            type: "HIDE_SELECT_ITEM_ERR_MSG_REQUEST",
-            payload: {},
-          })
+          dispatch(dispatch(hideMsgRequest()))
         }
       ></Toast>
     </View>

@@ -1,38 +1,27 @@
-import {ERR_MSG} from '../constants/msg.constant';
+import { ERR_MSG } from "../constants/msg.constant";
+import { createSlice } from "@reduxjs/toolkit";
 
-let defaultState = {
+let initialState = {
   hideTime: 1000,
   visible: false,
-  msg: 'hidden'
+  msg: "hidden",
 };
 
-let notiReducer = (state = defaultState, action) => {
-  switch(action.type) {
-    case 'SELECT_ITEM_ERR_MSG_REQUEST': {
-      const newState = {...state};
-      const msg = ERR_MSG.find(msg => msg.type === action.type);
-      newState.visible = true;
-      newState.msg = msg.content;
-      return newState;
-    }
-    case 'REGISTER_SUCCEED_MSG':
-      const newState = {...state};
-      const msg = ERR_MSG.find(msg => msg.type === action.type);
-      newState.visible = true;
-      newState.msg = msg.content;
-      return newState;
+const notiSlice = createSlice({
+  name: "noti",
+  initialState,
+  reducers: {
+    displayMsgRequest(state, action) {
+      const msg = ERR_MSG.find((msg) => msg.type === action.type);
+      state.visible = true;
+      state.msg = msg.content;
+    },
+    hideMsgRequest(state) {
+      state.visible = false;
+      state.msg = "";
+    },
+  },
+});
 
-    case 'HIDE_SELECT_ITEM_ERR_MSG_REQUEST': {
-      const newState = {...state};
-      newState.visible = false;
-      newState.msg = "";
-      return newState;
-    }
-  default:
-    return state;
-  }
-};
-
-export {
-  notiReducer
-}
+export const { displayMsgRequest, hideMsgRequest } = notiSlice.actions;
+export default notiSlice.reducer;
