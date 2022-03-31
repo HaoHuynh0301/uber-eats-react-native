@@ -1,0 +1,25 @@
+{
+  "name": "uber-eats-react-native",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd front-end && expo start",
+    "dev": "cd api && nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaoHuynh0301/uber-eats-react-native.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HaoHuynh0301/uber-eats-react-native/issues"
+  },
+  "homepage": "https://github.com/HaoHuynh0301/uber-eats-react-native#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
