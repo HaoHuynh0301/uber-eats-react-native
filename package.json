@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/HaoHuynh0301/uber-eats-react-native#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
