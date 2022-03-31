@@ -7,7 +7,6 @@ const { resMsg, fieldChecked } = require("../utils/res.utils");
 
 module.exports.loginRequest = async (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
   if (!(username && password)) {
     return res.status(400).json(resMsg(4001, { login: false }));
   }

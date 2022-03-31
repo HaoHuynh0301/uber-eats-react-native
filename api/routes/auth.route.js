@@ -4,8 +4,6 @@ const app = express();
 const router = express.Router();
 const authController = require('../controllers/auth.controller');
 
-console.log(authController)
-
 app.use(express.json());
 
 // endpoint for login method
