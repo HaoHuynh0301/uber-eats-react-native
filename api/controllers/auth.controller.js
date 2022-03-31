@@ -2,8 +2,9 @@ require("dotenv").config();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const verifyToken = require("../middlewares/jwt.middleware");
-var { USERS } = require("../constants/user.constants");
 const { resMsg, fieldChecked } = require("../utils/res.utils");
+const mongoose = require("mongoose");
+const User = require("../models/user.model");
 
 module.exports.loginRequest = async (req, res) => {
   const { username, password } = req.body;
@@ -11,7 +12,7 @@ module.exports.loginRequest = async (req, res) => {
     return res.status(400).json(resMsg(4001, { login: false }));
   }
 
-  const user = USERS.find((_user) => _user.username === username);
+  const user = await User.findOne({ username }).lean();
   if (!user) return res.status(400).json(resMsg(4002, { login: false }));
   if (await bcrypt.compare(password, user.password)) {
     try {
@@ -42,18 +43,13 @@ module.exports.registerRequest = async (req, res) => {
     res.status(400).send(resMsg(code, { register: false }));
   const hashPassword = await bcrypt.hash(password, 10);
   try {
-    USERS = [
-      ...USERS,
-      {
-        _id: USERS.length,
-        username: username,
-        password: hashPassword,
-        role: "normal",
-      },
-    ];
+    await User.create({
+      username: username,
+      password: hashPassword,
+    });
     res.status(201).send(resMsg(201, { username: username }));
   } catch (e) {
-    res.status(400).send(resMsg(400, {}));
+    res.status(400).send(resMsg(400, { err: e }));
   }
 };
 
