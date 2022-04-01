@@ -1,10 +1,14 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const express = require("express");
 const verifyToken = require("../middlewares/jwt.middleware");
 const { resMsg, fieldChecked } = require("../utils/res.utils");
 const mongoose = require("mongoose");
 const User = require("../models/user.model");
+const app = express();
+
+const ACCESS_TOKEN_SERCET = process.env.ACCESS_TOKEN_SERCET;
 
 module.exports.loginRequest = async (req, res) => {
   const { username, password } = req.body;
@@ -20,7 +24,7 @@ module.exports.loginRequest = async (req, res) => {
         id: user._id,
         username: user.username,
       };
-      const token = jwt.sign(resContext, process.env.ACCESS_TOKEN_SERCET, {
+      const token = jwt.sign(resContext,  ACCESS_TOKEN_SERCET, {
         expiresIn: process.env.ACCESS_TOKEN_LIFE,
       });
       const data = {
@@ -29,6 +33,7 @@ module.exports.loginRequest = async (req, res) => {
       };
       return res.status(200).send(resMsg(2001, { login: true, data: data }));
     } catch (error) {
+      console.log(error);
       return res.status(400).send(resMsg(400, { login: false }));
     }
   } else {
@@ -53,7 +58,7 @@ module.exports.registerRequest = async (req, res) => {
   }
 };
 
-module.exports.private =
+module.exports.private = app.use
   (verifyToken,
   (req, res, next) => {
     const username = req.username;

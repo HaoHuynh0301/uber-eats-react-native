@@ -1,10 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const getAccessToken = createAsyncThunk(
   "auth/getAccessToken",
   async () => {
     const accessToken = await AsyncStorage.getItem("access_token");
     return accessToken;
+  }
+);
+
+export const loginRequest = createAsyncThunk(
+  "auth/loginRequest",
+  async (paths, props) => {
+    const url = paths.join("/");
+    console.log('PATH', `${process.env.REACT_APP_BASE_URL}/${url}`);
+    await axios
+      .post(`${process.env.REACT_APP_BASE_URL}/${url}`, {
+        ...props,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(res);
+      });
   }
 );
 
@@ -38,6 +57,15 @@ const authSlice = createSlice({
     builder.addCase(getAccessToken.rejected, (state) => {
       state.loading = false;
       state.login = false;
+    });
+    builder.addCase(loginRequest.pending, (state, action) => {
+      console.log("Sending");
+    });
+    builder.addCase(loginRequest.fulfilled, (state) => {
+      console.log("OK");
+    });
+    builder.addCase(loginRequest.rejected, (state) => {
+      console.log("ERR");
     });
   },
 });
