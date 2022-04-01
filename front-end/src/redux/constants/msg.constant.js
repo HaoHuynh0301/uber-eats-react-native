@@ -6,5 +6,9 @@ export const ERR_MSG = [
   {
     type: 'noti/hideMsgRequest',
     content: 'Register Successfully!'
+  },
+  {
+    type: 'noti/displayLoginErrMsg', 
+    content: 'Your username or password is incorrect!'
   }
 ]

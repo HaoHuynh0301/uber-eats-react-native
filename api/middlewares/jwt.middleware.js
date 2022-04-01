@@ -7,7 +7,7 @@ const verifyToken = (req, res, next) => {
   const token = req.headers["authorization"];
   if (token) {
     try {
-      const decoded = jwt.verify(token, ACCESS_TOKEN);
+      const decoded = jwt.verify(token.slice(7, token.length), ACCESS_TOKEN);
       req.username = decoded.username;
     } catch (error) {
       return res.status(401).send(resMsg(4007, {}));

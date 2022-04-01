@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const verifyToken = require("../middlewares/jwt.middleware");
 const { resMsg, fieldChecked } = require("../utils/res.utils");
-const mongoose = require("mongoose");
 const User = require("../models/user.model");
 const app = express();
 
@@ -24,7 +23,7 @@ module.exports.loginRequest = async (req, res) => {
         id: user._id,
         username: user.username,
       };
-      const token = jwt.sign(resContext,  ACCESS_TOKEN_SERCET, {
+      const token = jwt.sign(resContext, ACCESS_TOKEN_SERCET, {
         expiresIn: process.env.ACCESS_TOKEN_LIFE,
       });
       const data = {
@@ -58,9 +57,7 @@ module.exports.registerRequest = async (req, res) => {
   }
 };
 
-module.exports.private = app.use
-  (verifyToken,
-  (req, res, next) => {
-    const username = req.username;
-    res.status(200).send(resMsg(2002, { username: username }));
-  });
+module.exports.private = app.use(verifyToken, (req, res, next) => {
+  const username = req.username;
+  res.status(200).send(resMsg(2002, { username: username }));
+});

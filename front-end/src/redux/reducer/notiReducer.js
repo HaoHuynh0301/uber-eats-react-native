@@ -20,8 +20,13 @@ const notiSlice = createSlice({
       state.visible = false;
       state.msg = "";
     },
+    displayLoginErrMsg(state) {
+      const msg = ERR_MSG.find((msg) => msg.type === action.type);
+      state.visible = true;
+      state.msg = msg.content;
+    }
   },
 });
 
-export const { displayMsgRequest, hideMsgRequest } = notiSlice.actions;
+export const { displayMsgRequest, hideMsgRequest, displayLoginErrMsg } = notiSlice.actions;
 export default notiSlice.reducer;

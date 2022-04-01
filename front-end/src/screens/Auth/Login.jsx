@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AuthForm from "../../components/Auth/AuthForm";
 import { FOOTER, SUBTITLE } from "./auth.constants";
 import { login, loginRequest } from "../../redux/reducer/authReducer";
+import { displayLoginErrMsg } from "../../redux/reducer/notiReducer";
 
 export default function Login({ navigation }) {
   const [username, setUsername] = useState("");

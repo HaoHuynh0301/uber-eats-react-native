@@ -62,7 +62,9 @@ const authSlice = createSlice({
       console.log("OK");
     });
     builder.addCase(loginRequest.rejected, (state) => {
-      console.log("ERR");
+      state.login = false;
+      state.loading = false;
+      
     });
   },
 });
