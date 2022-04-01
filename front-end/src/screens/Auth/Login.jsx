@@ -19,9 +19,9 @@ export default function Login({ navigation }) {
 
   const handleSubmit = () => {
     dispatch(
-      loginRequest(['auth', 'login'], {
-        username: username,
-        password: password,
+      loginRequest({
+        paths: ["auth", "login"],
+        props: { username: username, password: password },
       })
     );
   };

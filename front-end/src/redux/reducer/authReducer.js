@@ -11,19 +11,16 @@ export const getAccessToken = createAsyncThunk(
 
 export const loginRequest = createAsyncThunk(
   "auth/loginRequest",
-  async (paths, props) => {
-    const url = paths.join("/");
-    console.log('PATH', `${process.env.REACT_APP_BASE_URL}/${url}`);
-    await axios
-      .post(`${process.env.REACT_APP_BASE_URL}/${url}`, {
-        ...props,
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(res);
-      });
+  async (data) => {
+    const url = data.paths.join("/");
+    axios
+    .post(`http://192.168.1.15:5000/api/v1/auth/login/`, data.props)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log('ERR', err);
+    });
   }
 );
 
