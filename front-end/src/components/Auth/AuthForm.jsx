@@ -9,7 +9,7 @@ export default memo(function AuthForm(props) {
   const {
     logo,
     textInputs,
-    loginButton,
+    submitButton,
     handleLogin,
     subFooter,
     footer,
@@ -76,14 +76,14 @@ export default memo(function AuthForm(props) {
         </View>
       )}
       {textInputs && inputFields(textInputs)}
-      {loginButton && (
+      {submitButton && (
         <Button
           backgroundColor="black"
           labelStyle={styles.loginBtnLabel}
           style={styles.loginBtn}
-          label={loginButton.label}
+          label={submitButton.label}
           onPress={handleLogin}
-          disabled={loginButton.label !== "Login" && !validInfor}
+          disabled={submitButton.label !== "Login" && !validInfor}
         />
       )}
       {sendSmsButton && (

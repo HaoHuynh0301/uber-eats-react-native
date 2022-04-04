@@ -18,7 +18,7 @@ const FOOTER = [
   },
 ];
 
-export default function Register({ navigation, route }) {
+export default function Register({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [conPassword, setConPassword] = useState("");
@@ -96,7 +96,7 @@ export default function Register({ navigation, route }) {
         subFooter={SUBFOOTER}
         footer={FOOTER}
         handleLogin={handleRegister}
-        loginButton={{
+        submitButton={{
           label: "Register",
         }}
         setValidInfor={setValidInfor}
