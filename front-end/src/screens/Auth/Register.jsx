@@ -2,21 +2,12 @@ import { KeyboardAvoidingView } from "react-native";
 import React, { useState, useEffect } from "react";
 import AuthForm from "../../components/Auth/AuthForm";
 import styles from "./style /register.style";
-
-const FOOTER = [
-  {
-    icon: "google",
-    label: "Continue with Google",
-  },
-  {
-    icon: "facebook",
-    label: "Continue with Facebook",
-  },
-  {
-    icon: "github",
-    label: "Continue with Github",
-  },
-];
+import {FOOTER} from './auth.constants';
+import {useSelector, useDispatch} from 'react-redux';
+import {registerRequest} from '../../redux/reducer/authReducer';
+import { Incubator } from "react-native-ui-lib";
+import {notiActions} from '../../redux/reducer/notiReducer';
+const { Toast } = Incubator;
 
 export default function Register({ navigation }) {
   const [username, setUsername] = useState("");
@@ -26,6 +17,8 @@ export default function Register({ navigation }) {
   const [usernameValid, setUsernameValid] = useState(false);
   const [passwordValid, setpasswordValid] = useState(false);
   const [conPasswordValid, setConPasswordValid] = useState(false);
+  const { hideTime, visible, msg } = useSelector((state) => state.notiReducer);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(usernameValid && passwordValid &&  conPasswordValid) setValidInfor(true);
@@ -85,23 +78,37 @@ export default function Register({ navigation }) {
   ];
 
   const handleRegister = () => {
-    navigation.navigate("Login", {});
+    dispatch(
+      registerRequest({
+        paths: ["auth", "login"],
+        props: { username: username, password: password },
+      })
+    );
+    setTimeout(() => {navigation.navigate('Login', {})}, 1500);
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <AuthForm
-        logo={true}
-        textInputs={INPUT_FIELDS}
-        subFooter={SUBFOOTER}
-        footer={FOOTER}
-        handleLogin={handleRegister}
-        submitButton={{
-          label: "Register",
-        }}
-        setValidInfor={setValidInfor}
-        validInfor={validInfor}
-      />
-    </KeyboardAvoidingView>
+    <>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <AuthForm
+          logo={true}
+          textInputs={INPUT_FIELDS}
+          subFooter={SUBFOOTER}
+          footer={FOOTER}
+          handleLogin={handleRegister}
+          submitButton={{
+            label: "Register",
+          }}
+          setValidInfor={setValidInfor}
+          validInfor={validInfor}
+        />
+      </KeyboardAvoidingView>
+      <Toast
+        visible={visible}
+        message={msg}
+        autoDismiss={hideTime}
+        onDismiss={() => dispatch(notiActions.hideMsgRequest())}
+      ></Toast>
+    </>
   );
 }

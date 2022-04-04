@@ -10,5 +10,13 @@ export const ERR_MSG = [
   {
     type: 'noti/displayLoginErrMsg', 
     content: 'Your username or password is incorrect!'
+  },
+  {
+    type: 'noti/displayRegisterErrMsg', 
+    content: 'Your username or password is invalid!'
+  },
+  {
+    type: 'noti/displayRegisterSucceedMsg', 
+    content: 'Register successfully!'
   }
 ]

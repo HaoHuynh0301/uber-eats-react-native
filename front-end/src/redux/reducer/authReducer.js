@@ -64,10 +64,40 @@ export const loginRequest = createAsyncThunk(
   }
 );
 
+export const registerRequest = createAsyncThunk(
+  "auth/registerRequest",
+  async (data, { rejectWithValue, dispatch }) => {
+    const { props } = data;
+    try {
+      const response = await fetch(
+        "http://192.168.1.23:5000/api/v1/auth/register",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(props),
+        }
+      );
+      let jsonData = await response.json();
+      if (jsonData.code === 201) {
+        dispatch(notiActions.displayRegisterSucceedMsg());
+        return data;
+      } else {
+        dispatch(notiActions.displayRegisterErrMsg());
+        return rejectWithValue(data);
+      }
+    } catch (e) {
+      return rejectWithValue(e);
+    }
+  }
+);
+
 const initialState = {
   loading: true,
   login: false,
-  loginRequest: false,
+  loginRequest: false, 
   currUser: {},
 };
 

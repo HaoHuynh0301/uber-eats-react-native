@@ -24,6 +24,16 @@ const notiSlice = createSlice({
       const msg = ERR_MSG.find((msg) => msg.type === action.type);
       state.visible = true;
       state.msg = msg.content;
+    },
+    displayRegisterErrMsg(state, action) {
+      const msg = ERR_MSG.find((msg) => msg.type === action.type);
+      state.visible = true;
+      state.msg = msg.content;
+    },
+    displayRegisterSucceedMsg(state, action) {
+      const msg = ERR_MSG.find((msg) => msg.type === action.type);
+      state.visible = true;
+      state.msg = msg.content;
     }
   },
 });

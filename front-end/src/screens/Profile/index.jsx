@@ -4,6 +4,7 @@ import Header from "../../components/Profile/Header";
 import PersonalInfor from "../../components/Profile/PersonalInfor";
 import { useDispatch, useSelector } from "react-redux";
 import {logout} from '../../redux/reducer/authReducer';
+import {actions} from '../../redux/reducer/authReducer';
 
 export default function Profile({ navigation, route }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -11,7 +12,7 @@ export default function Profile({ navigation, route }) {
   const user = useSelector((state) => state.userReducer.userInfor);
   
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(actions.logout());
   };
 
   return (

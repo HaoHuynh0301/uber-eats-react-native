@@ -13,7 +13,7 @@ const fieldChecked = (username, password) => {
   if (!password || typeof password != "string") {
     return 4005;
   }
-  if (password.length < 5) {
+  if (password.length <= 6) {
     return 4006;
   }
   return;
