@@ -9,7 +9,7 @@ export const getAccessToken = createAsyncThunk(
       const accessToken = await AsyncStorage.getItem("access_token");
       if (accessToken !== null) {
         const response = await fetch(
-          "http://192.168.1.23:5000/api/v1/auth/private",
+          "http://192.168.1.9:3000/api/v1/auth/private",
           {
             method: "GET",
             headers: {
@@ -40,7 +40,7 @@ export const loginRequest = createAsyncThunk(
     const { props } = data;
     try {
       const response = await fetch(
-        "http://192.168.1.23:5000/api/v1/auth/login",
+        "http://192.168.1.9:3000/api/v1/auth/login",
         {
           method: "POST",
           headers: {
@@ -70,7 +70,7 @@ export const registerRequest = createAsyncThunk(
     const { props } = data;
     try {
       const response = await fetch(
-        "http://192.168.1.23:5000/api/v1/auth/register",
+        "http://192.168.1.9:3000/api/v1/auth/register",
         {
           method: "POST",
           headers: {
