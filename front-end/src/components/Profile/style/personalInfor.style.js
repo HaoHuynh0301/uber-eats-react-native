@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#e6e6e6",
     height: "100%",
-    paddingVertical: 20
   },
   basicInforContainer: {
     width: "100%",
@@ -16,12 +15,12 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: 'white',
     paddingHorizontal: 20,
-    paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#cccccc',
     justifyContent: 'space-between',
     minHeight: 60,
     alignItems: 'center',
+    marginTop: -10
   },
   linklinkContainer: {
     flexDirection: 'row',

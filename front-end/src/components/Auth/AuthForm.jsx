@@ -16,6 +16,7 @@ export default memo(function AuthForm(props) {
     sendSmsButton,
     sentSms,
     validInfor,
+    loading
   } = props;
 
   const inputFields = (textInputs) =>
@@ -64,6 +65,17 @@ export default memo(function AuthForm(props) {
       </TouchableOpacity>
     ));
 
+  const loadingButton = () => (
+    <Button
+      backgroundColor="black"
+      labelStyle={styles.loginBtnLabel}
+      style={styles.loginBtn}
+      label='Loading...'
+      onPress={handleLogin}
+      disabled={true}
+    />
+  )
+
   return (
     <SafeAreaView style={styles.container}>
       {logo && (
@@ -76,7 +88,7 @@ export default memo(function AuthForm(props) {
         </View>
       )}
       {textInputs && inputFields(textInputs)}
-      {submitButton && (
+      {submitButton ? loading  ? (loadingButton()) : (
         <Button
           backgroundColor="black"
           labelStyle={styles.loginBtnLabel}
@@ -85,7 +97,7 @@ export default memo(function AuthForm(props) {
           onPress={handleLogin}
           disabled={submitButton.label !== "Login" && !validInfor}
         />
-      )}
+      ) : null}
       {sendSmsButton && (
         <Button
           backgroundColor="black"

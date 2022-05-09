@@ -9,8 +9,13 @@ const app = express();
 
 const ACCESS_TOKEN_SERCET = process.env.ACCESS_TOKEN_SERCET;
 
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 module.exports.loginRequest = async (req, res) => {
   const { username, password } = req.body;
+  await new Promise(resolve => setTimeout(resolve, 1500));
   if (!(username && password)) {
     return res.status(400).json(resMsg(4001, { login: false }));
   }
@@ -30,6 +35,7 @@ module.exports.loginRequest = async (req, res) => {
         USERNAME: user.username,
         ACCESS_TOKEN: token,
       };
+      timeout(3000);
       return res.status(200).send(resMsg(2001, { login: true, data: data }));
     } catch (error) {
       return res.status(400).send(resMsg(400, { login: false }));
@@ -40,6 +46,7 @@ module.exports.loginRequest = async (req, res) => {
 };
 
 module.exports.registerRequest = async (req, res) => {
+  await new Promise(resolve => setTimeout(resolve, 1500));
   const { username, password } = req.body;
   let code = fieldChecked(username, password);
   if (code === 4004 || code === 4005 || code === 4006)

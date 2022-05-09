@@ -28,6 +28,7 @@ app.use("/api/v1/auth", authRoute);
 connectMongoose(MONGODB_URL);
 
 mainRouter.all("*", (req, res) => {
+  
   res.status(404).send("404 NOT FOUND");
 });
 

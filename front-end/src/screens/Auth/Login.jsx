@@ -14,6 +14,7 @@ export default function Login({ navigation }) {
   const [smsLogin, setSmsLogin] = useState(false);
   const [setPhonenumber, setSetPhonenumber] = useState("");
   const smsSent = useSelector((state) => state.userReducer.sentSms);
+  const loginRequestStatus = useSelector((state) => state.authReducer.loginRequest);
   const { hideTime, visible, msg } = useSelector((state) => state.notiReducer);
   const dispatch = useDispatch();
 
@@ -104,6 +105,7 @@ export default function Login({ navigation }) {
             subFooter={SUBFOOTER}
             footer={FOOTER}
             handleSendSms={() => setSmsLogin}
+            loading = {loginRequestStatus}
           />
         ) : smsSent ? (
           <AuthForm
