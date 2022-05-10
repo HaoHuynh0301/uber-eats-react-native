@@ -129,6 +129,7 @@ const authSlice = createSlice({
       state.loginRequest = false;
       state.login = true;
       state.currUser = action.payload;
+      // console.log('currUser', currUser);
     },
     [loginRequest.rejected]: (state) => {
       state.login = false;

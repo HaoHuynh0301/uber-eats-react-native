@@ -3,16 +3,16 @@ import React from "react";
 import styles from "./style/header.style";
 import { Avatar } from "react-native-ui-lib"; //eslint-disable-line
 
-const ProfileImage = () => (
-  <View style={styles.profileInforWrapper}>
-    <View style={styles.profileImgWrapper}>
-      <Avatar backgroundColor="#FFFFFF" name="HH" />
+export default function Header({username}) {
+  const ProfileImage = () => (
+    <View style={styles.profileInforWrapper}>
+      <View style={styles.profileImgWrapper}>
+        <Avatar backgroundColor="#FFFFFF" name={username.slice(0,1)} />
+      </View>
+      <Text style={styles.usernameTxt}>{username}</Text>
     </View>
-    <Text style={styles.usernameTxt}>Hao Huynh</Text>
-  </View>
-);
+  );
 
-export default function Header() {
   return (
     <View style={styles.container}>
       <ProfileImage />

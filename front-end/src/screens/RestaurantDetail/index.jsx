@@ -1,4 +1,11 @@
-import { View } from "react-native";
+import {
+  View,
+  Button,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import About from "../../components/restaurantDetail/About";
 import MenuItems from "../../components/restaurantDetail/MenuItems";
@@ -12,6 +19,7 @@ import {
   displayMsgRequest,
   hideMsgRequest,
 } from "../../redux/reducer/notiReducer";
+const backIcon = require("../../assets/image/back-icon.png");
 
 export default function RestaurantDetail({ route, navigation }) {
   const { hideTime, visible, msg } = useSelector((state) => state.notiReducer);
@@ -69,8 +77,21 @@ export default function RestaurantDetail({ route, navigation }) {
     0
   );
 
+  const renderheader = () => {
+    return (
+      <TouchableOpacity
+        title=""
+        style={styles.iconBackWrapper}
+        onPress={() => navigation.goBack()}
+      >
+        <Image source={backIcon} resizeMode="contain" style={styles.backIcon} />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={{ height: "100%" }}>
+      {renderheader()}
       <About data={MENU_ITEMS} route={route} />
       <Divider width={1.8} />
       <MenuItems
@@ -97,3 +118,17 @@ export default function RestaurantDetail({ route, navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  iconBackWrapper: {
+    position: "absolute",
+    top: 20,
+    zIndex: 1,
+    // height: 10,
+    // width: 20,
+  },
+  backIcon: {
+    height: 50,
+    width: 50,
+  }
+});

@@ -3,7 +3,7 @@ import React, {memo} from "react";
 import styles from "./style/personalInfor.style";
 import { Avatar, Button } from "react-native-ui-lib"; //eslint-disable-line
 
-export default memo(function PersonalInfor({ user, handleLogout }) {
+export default memo(function PersonalInfor({ user, handleLogout, username }) {
   
   const LogoutButton = () => (
     <Button
@@ -29,7 +29,7 @@ export default memo(function PersonalInfor({ user, handleLogout }) {
 
   const imgProfile = () => (
     <View style={styles.profileItemWrapper}>
-      <Avatar backgroundColor="#bfbfbf" name="HH" />
+      <Avatar backgroundColor="#bfbfbf" name={username.slice(0,1)} />
       {linkEditInformation("Change profile pictor")}
     </View>
   );
