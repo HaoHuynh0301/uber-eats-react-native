@@ -94,6 +94,10 @@ export const registerRequest = createAsyncThunk(
   }
 );
 
+const clearAccessToken = async () => {
+  await AsyncStorage.setItem("access_token", '');
+}
+
 const initialState = {
   loading: true,
   login: false,
@@ -106,6 +110,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout(state) {
+      clearAccessToken();
       state.login = false;
       state.currUser = {};
     },
