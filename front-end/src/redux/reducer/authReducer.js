@@ -21,6 +21,7 @@ export const getAccessToken = createAsyncThunk(
         );
         let jsonData = await response.json();
         if(jsonData.code === 2002) {
+          console.log('HEHE',jsonData);
           return jsonData;
         } else {
           return rejectWithValue(jsonData);
@@ -119,11 +120,15 @@ const authSlice = createSlice({
     [getAccessToken.pending]: (state) => {
       state.loading = true;
     },
-    [getAccessToken.fulfilled]: (state) => {
+    [getAccessToken.fulfilled]: (state, action) => {
+      console.log('HEHE', action.payload);
       state.loading = false;
       state.login = true;
+      state.currUser = {
+        props:action.payload
+      } ;
     },
-    [getAccessToken.rejected]: (state) => {
+    [getAccessToken.rejected]: (state, action) => {
       state.loading = false;
       state.login = false;
     },
@@ -134,7 +139,6 @@ const authSlice = createSlice({
       state.loginRequest = false;
       state.login = true;
       state.currUser = action.payload;
-      // console.log('currUser', currUser);
     },
     [loginRequest.rejected]: (state) => {
       state.login = false;
