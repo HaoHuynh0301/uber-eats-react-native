@@ -1,0 +1,19 @@
+{
+  "name": "Icon",
+  "category": "basic",
+  "description": "Icon component",
+  "extends": ["Image"],
+  "extendsLink": ["https://reactnative.dev/docs/image"],
+  "modifiers": ["margin"],
+  "example": "https://github.com/wix/react-native-ui-lib/blob/master/demo/src/screens/componentScreens/IconScreen.tsx",
+  "props": [
+    {"name": "assetName", "type": "string", "description": "if provided icon source will be driven from asset name"},
+    {"name": "assetGroup", "type": "string", "description": "the asset group, default is icons"},
+    {"name": "tintColor", "type": "string", "description": "The icon tint"},
+    {"name": "size", "type": "number", "description": "The icon size"},
+    {"name": "supportRTL", "type": "boolean", "description": "whether the image should flip horizontally on RTL locals"}
+  ],
+  "snippet": [
+    "<Icon source={{uri: 'https://github.com/wix/react-native-ui-lib/blob/master/demo/src/assets/icons/delete.png'}$1} size={24$2} tintColor={Colors.grey40$3}/>"
+  ]
+}

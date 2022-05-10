@@ -1,0 +1,10 @@
+storage: ./storage-internal
+
+auth:
+  htpasswd:
+    file: ./htpasswd-internal
+
+packages:
+  '**':
+    access: $all
+    publish: $all

@@ -1,0 +1,38 @@
+[
+  {
+    "component": "Avatar",
+    "source": "module-with-deprecations",
+    "message": "Please use the 'Picture' component instead.",
+    "fix": {"componentName": "Picture"}
+  },
+  {
+    "component": "Button",
+    "source": "module-with-deprecations",
+    "message": "Please use the 'Touch' component instead.",
+    "fix": {"componentName": "Touch"}
+  },
+  {
+    "component": "TextInput",
+    "source": "module-with-deprecations",
+    "message": "Please use the 'TextField' component instead.",
+    "fix": {"componentName": "TextField"}
+  },
+  {
+    "component": "List.Part",
+    "source": "module-with-deprecations",
+    "message": "Please use the 'List.Item' component instead (fix is working partially).",
+    "fix": {"componentName": "List.Item"}
+  },
+  {
+    "component": "List",
+    "source": "another-module-with-deprecations",
+    "message": "Please use the 'ListList' component instead.",
+    "fix": {"componentName": "ListList"}
+  },
+  {
+    "component": "ScrollView",
+    "parent": "MyComponent",
+    "source": "module-with-deprecations",
+    "message": "Please use the 'MyComponent.ScrollView' component instead."
+  }
+]
